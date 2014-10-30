@@ -35,6 +35,12 @@ a:hover {
   color: #767676;
 }
 
+strong {
+  color: #DAA520;
+  text-decoration: none;
+  font-weight: normal;
+}
+
 h3, h4 {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: bold;
