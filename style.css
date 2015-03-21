@@ -82,7 +82,7 @@ h4 {
 }
 
 /* Main marketing message and sign up button */
-.intro {
+.top {
   text-align: right;
   font-size: 14px;
 }
@@ -128,14 +128,19 @@ h4 {
 
 @media(max-width:375px) {
   .picture {
-    width: 100%;
+    width: 90%;
+  }
+
+  .top {
+    text-align:center;
   }
 
   #intro {
-    width: 100%;
+    width: 90%;
     text-align: center;
     padding-top: 10%;
     font-size: 12px;
+    margin-left: 5%;
   }
 
   h3 {
@@ -147,11 +152,12 @@ h4 {
     font-size: 2em;
   }
 
-  .contact {
+  .contact p {
     font-size: 12px;
     text-align: center;
   }
 
   p {
     font-size: 12px;
+    text-align: left;
   }
