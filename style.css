@@ -35,7 +35,7 @@ a:hover {
   color: #767676;
 }
 
-strong {
+.fakelink {
   color: #DAA520;
   text-decoration: none;
   font-weight: normal;
