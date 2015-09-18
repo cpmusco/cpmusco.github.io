@@ -55,7 +55,7 @@ h4 {
 }
 
 .picture {
-  width: 45%;
+  width: 44%;
   display: inline-block;
 }
 
@@ -74,7 +74,7 @@ h4 {
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 750px;
   }
 }
 .container-narrow > hr {
@@ -89,9 +89,9 @@ h4 {
 
 #intro {
   float: left;
-  width: 55%;
+  width: 54%;
   text-align: left;
-  padding-right: 1%;
+  padding-right: 2%;
 }
 
 /* Supporting marketing content */
