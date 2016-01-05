@@ -21,7 +21,7 @@ function [U,S] = bksvd(A, k, iter, bsize)
 
 % Check input arguments and set defaults.
 if nargin > 4
-    error('bksvd:TooManyInputs','requires at most 3 input arguments');
+    error('bksvd:TooManyInputs','requires at most 4 input arguments');
 end
 if nargin < 2
     error('bksvd:TooFewInputs','requires at least 2 input arguments');
