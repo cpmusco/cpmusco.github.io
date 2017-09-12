@@ -4,14 +4,6 @@ function x = lanczos(A, b, matfun, iter)
 % Analyzed in e.g.:
 % "Error analysis of the Lanczos algorithm for tridiagonalizing a 
 %   symmetric matrix" -- Christopher Paige
-% "Accuracy and effectiveness of the Lanczos algorithm for the
-%   symmetric eigenproblem" -- Christopher Paige
-% "Behavior of slightly perturbed Lanczos and conjugate-gradient
-%   recurrences" -- Anne Greenbaum
-% "Error bounds in the simple Lanczos procedure for computing functions 
-%   of symmetric matrices and eigenvalues" -- Druskin, Knizhnerman
-% "Stability of the Lanczos Method for Matrix Function Approximation"
-%   -- Musco, Musco, Sidford
 %
 % usage : 
 %
