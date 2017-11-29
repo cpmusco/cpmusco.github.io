@@ -83,15 +83,15 @@ h4 {
 
 /* Main marketing message and sign up button */
 .top {
-  text-align: right;
+  text-align: left;
   font-size: 14px;
 }
 
 #intro {
-  float: left;
+  float: right;
   width: 54%;
   text-align: left;
-  padding-right: 2%;
+  padding-left: 2%;
 }
 
 /* Supporting marketing content */
