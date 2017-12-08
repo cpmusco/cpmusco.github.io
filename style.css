@@ -136,11 +136,12 @@ h4 {
   }
 
   #intro {
+	float: none;
     width: 90%;
     text-align: center;
     padding-top: 10%;
     font-size: 12px;
-    margin-left: 5%;
+    margin-left: 4%;
   }
 
   h3 {
