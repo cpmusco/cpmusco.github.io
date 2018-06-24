@@ -54,6 +54,11 @@ h4 {
   font-size: 2em;
 }
 
+p {
+  padding-bottom: 1px;
+  padding-top: 1px;
+}
+
 .picture {
   width: 42%;
   display: inline-block;
@@ -162,3 +167,4 @@ h4 {
     font-size: 12px;
     text-align: left;
   }
+}
