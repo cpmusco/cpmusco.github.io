@@ -3,6 +3,11 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
   font-family: 'Merriweather', serif;
+  font-weight: lighter;
+  text-align: justify;
+  -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+  hyphens: auto;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -43,7 +48,7 @@ a:hover {
 
 h3, h4 {
   font-family: 'Open Sans Condensed', sans-serif;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 h3 {
@@ -95,7 +100,10 @@ p {
 #intro {
   float: right;
   width: 54%;
-  text-align: left;
+  text-align: justify;
+  -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+  hyphens: auto;
   padding-left: 2%;
 }
 
