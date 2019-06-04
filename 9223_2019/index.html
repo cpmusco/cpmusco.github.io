@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Custom styles -->
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico">
+
+    <title>9223I Fall 2019</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">CS-GY 9223I</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="https://www.piazza.com/princeton/fall2018/cos521/home">Piazza</a>
+                </li> -->
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Previous
+                        Years
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="https://www.cs.princeton.edu/~smattw/Teaching/cos521fa17.htm">2017</a>
+                        <a class="dropdown-item" href="https://www.cs.princeton.edu/courses/archive/fall16/cos521/">2016</a>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 class="jumbotron-heading">NYU CS-GY 9223I<br>Algorithmic Machine Learning <br> and Data Science</h1>
+
+                <p class="lead text-muted">
+                    Advanced topics course exploring contemporary algorithmic techniques and recent research on computational methods that enable machine learning and data science at scale. 
+                </p>
+
+                <h5 class="instructors">
+                    <b>Course Instructor:</b> <a href="https://www.chrismusco.com/">Professor Christopher Musco</a>
+                </h5>
+            </div>
+        </section>
+
+        <div class="album py-3 bg-light">
+            <div class="container">
+                <div class="row">
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <h3 class="maintopic"><br>Course Summary</h3>
+                        <p class="courseinfo">
+                            <b>Prerequisites:</b> This course is mathematically challenging, and is intended for graduate students or advanced undergraduates. I require a previous course in machine learning (for example, CS-UY 4563, CS-GY 6923, or ECE-GY 6143) and a previous course in algorithm design and analysis (for example, CS-UY 2413, CS-GY 6033, or CS-GY 6043). Experience with linear algebra and probability is also necessary. Email the course instructor if you have questions about your preparation for the course!
+                        </p>
+                        <p class="courseinfo">
+                            <b>Coursework:</b> One lecture per week. 4-5 problem sets involving mathematical analysis of algorithms and programming exercises to explore  the lecture ideas (40% of grade). Midterm exam (20% of grade). Final exam (40% of grade). A formal syllabus with more detailed information will be posted in the fall.
+                        </p>
+
+                        <p class="courseinfo">
+                            <b>Resources:</b> There is no textbook to purchase. Course material will consist of my written lecture notes, as well as assorted online resources, including papers, notes from other courses, and publicly available surveys. Please refer to the course webpage before and after lectures to keep up-to-date as new resources are posted.
+                        </p>
+                    </div>
+                    <div class="col-sm">
+                        <h3 class="maintopic"><br>Administrative Information</h3>
+                        <p class="courseinfo">
+                            <b>Lectures:</b> Wednesdays 3:20-5:50pm in  2 Metrotech Center, Room 9.011.
+                        </p>
+                        <p class="courseinfo">
+                            <b>Office hours:</b> time and place TBA <br>
+                            <b>Reading Group:</b> time and place TBA
+                        </p>
+
+                        <p class="courseinfo">
+                            <b>Homework:</b> While not required, I encourage students to prepare problem sets in <a href="https://astrobites.org/2018/01/20/getting-started-with-latex/">LaTeX</a> or <a href="https://en.wikipedia.org/wiki/Markdown"> Markdown</a> (with <a href="http://support.typora.io/Math/">math support</a>.)
+                            You can use this <a href="Homeworks/template.tex">template</a> for LaTeX. While there is a learning curve for LaTeX (less for Markdown), it typically saves students lots of time by the end of the semester!
+                        </p>
+                        <p class="courseinfo"></p>
+                            For regular homework problems <u>collaboration is allowed, but solutions and any code must be written independently</u>. Students must list collaborators on their problem sets (for each problem separately).
+                        </p>
+
+                        <p class="courseinfo"> 
+                            <b>Optional Reading Group:</b> It's an exciting time for research at the intersection of algorithm design and the data sciences. Many of the ideas covered in this course are still the subject of active research. For each lecture, I will choose a relevant, recent research paper. Interested students will have the option of reading the paper and  discussing each week for 1-2 hours in a collaborative and relaxed environment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="album py-3 bg-light">
+            <div class="container">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Lecture #</th>
+                            <th scope="col">Topic</th>
+                            <th scope="col">Required Reading</th>
+                            <th scope="col">Optional Reading</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr class="tablesection">
+                            <td colspan="4">The Power of Randomness</td>
+                        </tr>
+
+                        <tr class="oddrow">
+                            <th scope="row">1. 9/4</th>
+                            <td>
+                                Concentration of random variables + applications to hashing and data streams
+                            </td>
+                            <td>
+                                <!-- <a href="Lectures/lec1.pdf">Lecture 1 notes.</a>< -->
+                            </td>
+                            <td>
+                                <!-- <ul>
+                                    <li> Lectures 2 and 3 <a = href="https://www.cs.princeton.edu/courses/archive/fall18/cos521/">here</a>.
+                                    </li>
+                                </ul> -->
+                            </td>
+                        </tr>
+                        <tr class="evenrow">
+                            <th scope="row">3. 9/11</th>
+                            <td>
+                                The Johnson-Lindenstrauss lemma + applications to high dimensional data
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="oddrow">
+                            <th scope="row">3. 9/18</th>
+                            <td>
+                                Nearest neighbor search + locality sensitive hashing
+                            </td>
+                            <td></td>
+                            <td></td>    
+                        </tr>
+
+                        <tr class="tablesection">
+                                <td colspan="4">First-order Optimization</td>
+                        </tr>
+                        
+                        <tr class="evenrow">
+                            <th scope="row">4. 9/25</th>
+                            <td>
+                                Convexity in machine learning + vanilla, stochastic, and online gradient descent
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="oddrow">
+                            <th scope="row">5. 10/2</th>
+                            <td>
+                                Conditioning, acceleration, coordinate descent, quasi-Newton methods
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="evenrow">
+                            <th scope="row">6. 10/9</th>
+                            <td> 
+                                Beyond convexity: training neural networks and other non-convex models
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr class="oddrow">
+                                <th scope="row">7. 10/16</th>
+                                <td> 
+                                    Learning from experts + multiplicative weights
+                                </td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+
+                        <tr class="evenrow">
+                                <th scope="row">8. 10/23</th>
+                                <td> 
+                                    Constrained optimization, linear + semidefinite programming, interior point methods.
+                                </td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+
+                        <tr class="tablesection">
+                                <td colspan="4">Spectral Methods and Linear Algebra</td>
+                        </tr>
+
+                        <tr class="oddrow">
+                                <th scope="row">9. 10/30</th>
+                                <td> 
+                                    Singular value decomposition, Krylov methods + application to spectral clustering
+                                </td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+
+                        <tr class="evenrow">
+                            <th scope="row">10. 11/6</th>
+                            <td>Randomized linear algebra, sketching for linear regression, &epsilon;-nets arguments</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="oddrow">
+                            <th scope="row">11. 11/13</th>
+                            <td>
+                                Importance sampling, leverage scores, active learning
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr class="tablesection">
+                                <td colspan="4">Fourier Methods</td>
+                        </tr>
+
+                        <tr class="evenrow">
+                            <th scope="row">12. 11/20</th>
+                            <td>The Fourier transform, DFT, FFT + applications</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="offday oddrow">
+                            <th scope="row">11/27</th>
+                            <td>No Class, Thanksgiving</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr class="evenrow">
+                            <th scope="row">13.  12/4</th>
+                            <td>
+                                Compressed sensing, the restricted isometry property, basis pursuit
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="oddrow">
+                            <th scope="row">14. 12/11</th>
+                            <td>Kernel methods in machine learning, random Fourier features</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- <footer class="container">
+        <p>&copy 2017-2018</p>
+    </footer> -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

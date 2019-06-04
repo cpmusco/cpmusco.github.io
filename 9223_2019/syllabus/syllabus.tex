@@ -1,0 +1,282 @@
+% basic setup
+\documentclass[10pt]{article}
+\usepackage{titlesec}
+\usepackage{geometry}
+\geometry{verbose,tmargin=.9in,bmargin=.9in,lmargin=1.0in,rmargin=1.0in}
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{url}
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage[colorlinks=true, linkcolor=red, urlcolor=blue, citecolor=gray]{hyperref}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}
+{\begin{multicols}{2}[\section*{\refname}]}{}{}
+	\patchcmd{\endthebibliography}{\endlist}{\endlist\end{multicols}}{}{}
+\newdimen\figrasterwd
+\figrasterwd.45\textwidth
+
+\definecolor{nyuDarkPurple}{HTML}{330662}
+\definecolor{nyuOfficialPurple}{HTML}{57068c}
+
+\setlength{\parskip}{.25em}
+\newcommand{\spara}[1]{\vspace{.5em}\noindent {\large\sffamily\textcolor{nyuOfficialPurple}{#1}}}
+\titleformat{\section}[runin]{\Large\sffamily\color{nyuDarkPurple}}{\thesection}{1em}{}
+\titleformat{\subsection}[runin]{\large\sffamily\color{nyuDarkPurple}}{\thesection}{1em}{}
+\titleformat{\subsubsection}[runin]{\normalsize\sffamily\color{gray}}{\thesection}{1em}{}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\includegraphics[width=4cm]{tandon_long_color.eps}}
+\rhead{\thepage}
+ 
+ \newcommand{\specialcell}[2][c]{%
+ 	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\setcounter{secnumdepth}{0}
+
+% math commands
+\DeclareMathOperator{\R}{\mathbb{R}}
+
+% bibliography commands
+\input{bib_macros}
+
+\begin{document}
+	
+\begin{center}
+	\LARGE\sffamily
+	\vspace{-1em}
+	A Theory for Smarter Data Acquisition
+%A THEORY FOR SMARTER DATA ACQUISITION
+	
+	\large
+	Bloomberg Data Science Research Grant Proposal \\
+\end{center} 
+
+\vspace{-.75em}
+\begin{center}
+\vspace{-.75em}
+\begin{tabular}{ll}
+\textbf{P. I.} & Christopher Musco, Assistant Professor \\
+\textbf{Department} & New York University, Computer Science and Engineering \\
+\textbf{Contact} & Email: \href{mailto:cmusco@nyu.edu}{cmusco@nyu.edu}, Phone: 401-578-2541, Webpage: \href{https://www.chrismusco.com}{chrismusco.com}  \\
+\textbf{Funding request} & \$64,990 in support of Ph.D. student collaborator
+\end{tabular}
+\vspace{-0em}
+\end{center}
+
+\section{TECHNICAL DETAILS}
+
+\subsection{ABSTRACT}
+\vspace{-1em}
+While ``big data'' has been essential to many recent successes in data science, access to abundant, high quality data remains a rare luxury in most application domains. In contrast to areas like computer vision and language learning, where data is plentiful, collecting even a single example can be costly in fields like earth science and 
+medicine. Moreover, collected data often requires careful vetting and cleaning. As a result, in many application areas, insight is necessarily gleaned from ``small data'', not ``big data''.
+
+Our goal is to boost the power of “small data” by designing algorithms for \emph{smarter data acquisition}. 
+%We seek to take advantage of a common situation in scientific modeling: even when collecting data is expensive, researchers often have a lot of control over which data points they collect. 
+Consider, for example, an ecologist forecasting fish population based on catch-and-release surveys. There is a high cost to collect each data point, which estimates population at a single time and geographic location. However, as in many scientific studies, the researcher has freedom in choosing exactly which data points are collected, and good choices can vastly reduce the number of surveys required to accurately model the entire fishery.
+This proposal describes an approach to solving the difficult problem of \emph{how} to make these choices.
+
+In particular, to harness the potential of \emph{small data}, we will look towards mathematical tools developed for understanding \emph{big data}. The demands of large-scale data processing have necessitated a revolution in our ability to quickly identify the most important data points or features in large datasets using extremely efficiently randomized algorithms. We plan to adapt these methods to the problem of data acquisition by showing that they can used to construct non-uniform randomized data sampling strategies that are 1) robust to sample noise and corruption 2) computationally tractable and 3) general purpose.
+%In particular, to harness the potential of \emph{small data}, we look towards mathematical tools developed for understanding \emph{big data}. The demands of large-scale data processing have necessitated a revolution in our ability to quickly summarize datasets by using extremely efficiently randomized algorithms to identify important data points or features.
+%We plan to adapt these methods to the data acquisition problem by showing that they can with the goal of showing that carefully constructed randomized sampling strategies can be applied \emph{before data collection} to acquire data which is as informative as possible. This approach will ideally yield acquisition algorithms that are 1) robust to data noise and corruption 2) computationally tractable and 3) general purpose.
+
+
+\begin{figure}[h]
+	\vspace{-.5em}
+	\captionsetup{width=\linewidth}
+		\includegraphics[width=.196\textwidth]{fullSamples.png}
+		\includegraphics[width=.196\textwidth]{uniformSamples.png}
+		\includegraphics[width=.196\textwidth]{uniformSamplingErrorCrop.png}
+		\includegraphics[width=.196\textwidth]{leverageSamples.png}
+		\includegraphics[width=.196\textwidth]{leverageSamplingError.png}
+	\vspace{-1.5em}
+	\caption{A function fitting problem involving the percentage of clay in Narragansett Bay, RI marine sediments \cite{McMullen:2007}. A baseline estimate for clay density was obtained by interpolating a full grid of data. We then attempt to match the baseline using half the samples. Quantitatively and qualitatively, initial tests of the acquisition strategy described in this proposal (far right) outperform uniform random sampling (center).}
+%		, especially on the ``edges'' of the interpolation space.}
+	\label{fig:gansett}
+	\vspace{-1.5em}
+\end{figure}
+
+\subsection*{PROBLEM FORMULATION} 
+We begin by describing a simple mathematical model for the data acquisition problem which will serve as a starting point for our research.
+
+Specifically, consider the problem of learning a real valued function $y$ which lies in some smooth or structured class of functions $\mathcal{F}: \R^d \rightarrow \R$. We can think of $d$ as small (1 or 2 dimensions when fitting a time series or spatial data). Common choices for $\mathcal{F}$ include low-degree polynomials, band-limited functions with bounded energy, etc.
+We are able to collect data samples $x_1, \ldots, x_s$ anywhere in some domain $\mathcal{X} \subset \R^d$. For each $x_i$, we observe $y(x_i) + \eta(x_i)$ for some ``corruption'' function $\eta: \R^d \rightarrow \R$. This function encapsulates random or adversarial measurement noise and can also account for model misspecification error: often the data being studied does not exactly fit a function in $\mathcal{F}$. 
+
+Our goal is to choose data points $x_1, \ldots, x_s$ that allow us to recover $\tilde{y} \in \mathcal{F}$ where $\|\tilde{y} - y\|_\mathcal{X}$ is small for some norm (e.g., the squared error $\|\tilde{y} - y\|_\mathcal{X} = \int_\mathcal{X}|\tilde y(x) - y(x)|^2 \,dx$). Ideally, we would like $\|\tilde{y} - y\|_\mathcal{X} < c \|\eta\|_\mathcal{X}$ for a small constant $c>1$ (for a fixed corruption function $\eta$, we cannot hope to achieve $\|\tilde{y} - y\|_\mathcal{X} < \|\eta\|_\mathcal{X}$).
+
+
+%Our go we cannot hope to Ideally, we hope to achieve $\|\tilde{y} - y\|_\mathcal{X} \leq c \|\eta\|_\mathcal{X}$ for some $c$ which is not much larger than 1.
+%
+%Of course, we can only recover an approximation to $y$ from finite samples if it is smooth or structured in some way. Formally,  we assume that there is a constrained class of functions $\mathcal{F}: \mathcal{X} \rightarrow \R$ and some $f \in \mathcal{F}$ such that $\|y - f\|_{\mathcal{X}}$ is small. with $\|y - \tilde{y}\|_{\mathcal{X}} \leq (1+\epsilon)\|y - f\|_{\mathcal{X}}$ for some error parameter $\epsilon$ (a smaller $\epsilon$ typically requires more samples). Common choices for $\mathcal{F}$ include all low-degree polynomials, band-limited functions with bounded energy, etc.
+
+
+%\begin{figure}[h]
+%	\centering
+%	\captionsetup{width=.85\linewidth}
+%	\begin{subfigure}[t]{0.48\textwidth}
+%		\centering
+%		\includegraphics[width=.7\textwidth]{sampledSignal.eps}
+%		\caption{If $y$ is not smooth or structured, we cannot meaningfully approximate it based on a finite number of samples.}
+%	\end{subfigure}
+%	~
+%	\begin{subfigure}[t]{0.48\textwidth}
+%		\centering
+%		\includegraphics[width=.7\textwidth]{reconstructedSignal.eps}
+%		\caption{We assume $y$ is close to some signal in $\mathcal{F}$.}
+%	\end{subfigure}
+%	\vspace{-.5em}
+%	\caption{However, .}
+%	\label{fig:basic_problem}
+%\end{figure}
+
+\vspace{-2em}
+\subsubsection{PRIOR WORK} This above problem has been studied extensively in many research communities, including applied mathematics (approximation theory), signal processing (sampling theory), and statistics (optimal design of experiments).
+Classical results in these areas include the use of Chebyshev nodes for interpolating polynomials \cite{Powell:1981}, quadrature rules based on Prolate Spheroidal Wave Functions for fitting band-limited functions \cite{ShkolniskyTygertRokhlin:2006, SlepianPollak:1961}, and optimal closed form solutions to many experiment design problems \cite{FedorovHackl:1994,KieferWolfowitz:1959}. 
+
+However, while mathematically elegant and sample efficient, most known data acquisition strategies are \emph{brittle}. Many are highly tailored to $\mathcal{F}$ and $\mathcal{X}$. Generalizing to more complex domains (e.g., to the irregular $\mathcal{X}$ in Figure \ref{fig:gansett}) leads to exponential time selection methods that are difficult to implement in practice \cite{Muller:2007}. Moreover, many approaches require strong assumptions on $\eta$ (roughly, that it is small \emph{for all} $x\in \mathcal{X}$, instead of e.g., small on average). They fail to recover functions corrupted by non-uniform or adversarial noise.
+
+\vspace{-.75em}
+\subsection*{PROPOSED APPROACH} 
+
+\begin{wrapfigure}{r}{0.45\textwidth}
+	\vspace{-1.5em}
+	\centering
+	\parbox{\figrasterwd}{
+		\parbox{.4\figrasterwd}{%
+			\hspace{.1em}\includegraphics[width=.98\hsize]{intervalLscores.png}
+			\includegraphics[width=\hsize]{circleLscores.png}
+		}
+		\hskip1em
+		\parbox{.51\figrasterwd}{%
+			\includegraphics[width=\hsize]{gansettLscores.png}
+		}
+	}
+	\vspace{-.85em}
+	\caption{Leverage score based data sampling distributions for various regions $\mathcal{X}$: an interval in $\R$, the unit circle in $\R^2$, and the Narraganset bay boundary. Like many deterministic data acquisition patterns (e.g., Cheybshev nodes), the distributions concentrate samples near $\mathcal{X}$'s boundary.}
+	\label{fig:levscores}
+\vspace{-1.4em}
+\end{wrapfigure}
+
+We plan to address the data acquisition problem from a new perspective, by drawing on techniques developed for designing \emph{data sketching} algorithms \cite{DrineasMahoney:2016}. Arising from the need to accelerate inference and model fitting on large datasets, the goal of sketching is to rapidly summarize data by distilling it down to a small, informative set of features or examples (often called a ``coreset''). Ideally, this small summary can be used to approximately optimize a model over the full dataset, at a much lower computational cost.
+
+Many algorithms for data sketching are based on \emph{importance sampling}: the goal is to quickly compute a ``score'' for each data point and to then \emph{independently} sample points with probability proportional to their score. More ``important'' data is sampled with higher probability. This approach offers a simpler and faster alternative to algorithms that explicitly consider dependencies between data points \cite{DeshpandeRademacherVempala:2006}. Yet remarkably, for standard models like PCA, regression, kernel methods, and common clustering objectives, little is lost from treating data independently: recent breakthroughs in high dimensional concentration of measure (e.g., matrix concentration) can be used to show that importance sampling leads to near optimal data compression \cite{Tropp:2012}. 
+This finding raises a natural question: 
+\begin{center}
+	\vspace{-.5em}
+	\textbf{Can importance sampling be used for effective, even nearly optimal, data acquisition?}
+	\vspace{-.5em}
+\end{center}
+Along with collaborators at EPFL and Tel Aviv University we began exploring this question while developing sketching algorithms for certain kernel problems \cite{AvronKapralovMusco:2017}. 
+We started by  extending a common measure of importance known as the “statistical leverage score” to continuous intervals in $\R^d$. Surprisingly, we were able to prove that, when $\mathcal{X}$ is an interval in $\R$, simply sampling points according to this continuous measure is competitive with the best known data acquisition strategies for polynomial regression, bandlimited function fitting, and several Gaussian process regression problems \cite{AvronKapralovMusco:2019}. 
+Moreover, the randomized approach offers a number of concrete advantages over prior methods: 
+\vspace{-.5em}
+\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+	\itemsep0em 
+	\item \textbf{Robustness.} The randomly selected data points can be used to provably recover $y$ under much weaker assumptions than deterministic methods: $\eta$ only needs to be bounded \emph{on average} instead of uniformly on $\mathcal{X}$.
+%		Prior methods only recover $y$ under strong assumptions. For example, many results in approximation theory assume an $f\in \mathcal{F}$ with $\max_\mathcal{X}|y - f|$ bounded. Similarly, most results in optimal experiment design implicitly require that $y - f$ looks like independent random noise. We seek methods that work in a more robust setting, where $y$ may be a smooth function corrupted by non-uniform and even adversarial noise. 
+	\item \textbf{Computational efficiency.} For simple regions like an interval in $\R$, $s$ data points can be selected in $O(s)$ time. For more complex regions, simple polynomial time approximation algorithms can be used.
+%	
+%	While closed form and provable optimal data acquisition patterns can be computed for simple problems, like fitting polynomials over intervals in $\R$ \cite{KieferWolfowitz:1959}, generalizations of most prior work (e.g. for the irregular domain of the problem in Figure \ref{fig:gansett}) lead to exponential time algorithms for selecting data samples \cite{Muller:2007}, making them impossible to implement in practice.
+	\item \textbf{Generality.} Our result uses the \emph{same distribution} to select a nearly optimal set of data points for a wide variety of function classes $\mathcal{F}$, including all the examples listed above.
+	Often when a scientist is collecting data, they do not know exactly how it will be analyzed. In contrast to prior work, our approach offers the possibility of choosing a model \emph{after} data collection, without sacrificing sample efficiency.
+\end{enumerate}
+
+
+
+%\begin{figure}[h]
+%	\vspace{-.5em}
+%	\centering
+%	\captionsetup{width=\linewidth}
+%		\includegraphics[height=.3\textheight]{gansettLscores.png}
+%		\includegraphics[height=.15\textheight]{intervalLscores.png}
+%~
+%		\includegraphics[height=.15\textheight]{circleLscores.png}
+%~
+%
+%	\vspace{-.75em}
+%	\caption{Something}
+%	\label{fig:gansett}
+%	\vspace{-1.5em}
+%\end{figure}
+
+\vspace{-1.5em}
+\subsubsection{NEXT STEPS}
+These promising initial results have raised a number of important questions. The P.I. has identified three of immediate importance which we plan to address with the support of a grant from Bloomberg:
+\vspace{-2em}
+\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+	\itemsep0em 
+	\item \textbf{Extending to higher dimensions.} While our underlying importance sampling algorithm easily extends to higher dimensions and performs well in initial experiments (see Figure \ref{fig:levscores}), we would like to obtain provable guarantees. We expect that doing so for 2 and 3 dimensions is well within the year long scope of this project and important for many applications. Extending to arbitrary dimension $d$ is a reach goal.
+\end{enumerate}
+
+\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
+	\itemsep0em 
+	\addtocounter{enumi}{1} 
+	\item \textbf{Handling complex domains.} One of the major advantages of importance sampling over many deterministic data acquisition schemes is that it can be applied to domains $\mathcal{X}$ with complex shape and structure. Formally characterizing sample complexity over such regions remains an important open question.
+	\item \textbf{Understanding adaptivity.} Recent work on data acquisition for scientific applications takes advantage of \emph{adaptivity} to boost the potential of small data even further. I.e., past data samples are used to inform the choice of new points for collection \cite{SrinivasKrauseKakade:2010}. We hope to understand if our approach can be combined with adaptive algorithms, providing the same robustness is adds to the batch data acquisition problem.
+\end{enumerate}
+
+\vspace{-1.5em}
+\section*{BUDGET}
+The P.I. is applying to fund a Ph.D. student collaborator for one year. The student to be supported is not finalized, but will likely be Fan Yao, who holds an M.S. from Peking University. A detailed budget prepared by NYU's Office of Sponsored Programs is included below\footnote{Graduate students receive tuition remission calculated at 51\% of salary. Please refer to \href{http://www.nyu.edu/research/resources-and-support-offices/sponsored-programs/proposal-development/nyu-administrative-information-for-proposal-preparation.html}{OSP website} for more information.
+}. Travel expenses include the cost of one domestic conference and one visit to outside collaborators at either EPFL or Tel Aviv University.
+
+\vspace{-.75em}
+\begin{center}
+\includegraphics[width=\textwidth]{budgetPDF.pdf}
+\end{center}
+
+%\begin{table}[h]
+%\begin{tabular}{llr}
+%	\toprule
+%	Budget Line Item & Details & Amount \\
+%	\midrule
+%	Graduate Research Assistant  & & \\
+%		\phantom{ZZ} 12 month salary & 3,250.00 per month. & 39,000.00 \\
+%		\phantom{ZZ} Tuition remission & Fixed 51\% of salary.\footnotemark & 19,890.00 \\
+%		\phantom{ZZ} Domestic conference travel & Based on GSA rates. &    1,200.00 \\
+%		\phantom{ZZ} Student conference registration &  &    300.00 \\
+%		\phantom{ZZ} International travel (research collaboration)  & To visit either EPFL. &    2,900.00  \\
+%		& or Tel Aviv University & \\
+%	\textsc{Total Project Cost}                      & & {\textbf{\$ 63,290.00}}\\
+%	\bottomrule                
+%\end{tabular}
+%\end{table}
+
+\vspace{-1.75em}
+\section*{DATA POLICY}
+In keeping with the P.I.'s past research record, all work published under this project will be made freely and openly available through \href{https://www.arXiv.org}{arXiv.org} before appearing in conference proceedings or a journal. As a policy, work will not be submitted to venues that do not allow cross-posting to arXiv. Any software or code produced under this grant will also be made publicly available, under an open source license. The P.I.'s past software has typically been released through \href{https://www.github.com}{github.com} under the MIT open source license. 
+
+\vspace{-1.25em}
+\footnotesize
+\bibliographystyle{plain}
+\bibliography{proposal}
+
+
+%\subsection{RELATED WORK}
+%Randomized data acquisition methods are:
+%Robust (e.g. can deal with l2 noise and adversarial corruptions)
+%Generic (collect data can be used for many downstream tasks
+%Flexible 
+%
+%\begin{itemize}
+%	\item Optimal Experiment Design for polyonomial regression is well studied in classic statistics literature. One big name in the area is Jack Kiefer. \cite{KieferWolfowitz:1959} is very well cited and shows optimality of essentially the Chebyshev nodes for a not very standard notion of optimality. Follow up work on D-optimality \cite{Kiefer:1961}. Classic work on optimality if you sample at peaks of legendre polynomials \cite{Guest:1958}. Follow up work for another type of D-optimal design 
+%	\cite{Studden:1980} and E-design \cite{PukelsheimStudden:1993}, which again uses Chebyshev nodes. And a good paper that summarizes this work \cite{Stigler:1971}.
+%	\item Book on approximation theory: \cite{MasonHandscomb:2002} which talks about Chebyshev node optimality and Powell's og book: \cite{Powell:1981}
+%	\item Future work would consider an active learning set up where you can adjust where you sample depending on values you receive. There has been work on this. One well cited paper is \cite{SrinivasKrauseKakade:2010}.
+%	\item Old well cited paper on optimal experiment design for spatial sampling for Gaussian processes: \cite{ShewryWynn:1987}. Gives a heuristic algorithm to find an optimal grid based on an entropy criterion which concentrates points near edges. Lots of follow up work uses greedy algorithms.
+%	\cite Some work including this one studies what happens when you look at the asymptotic density of design points. Might be relevant to our techinques which define a distribution over all points: \cite{SacksYlvisaker:1968}. See \cite{FedorovHackl:1994} for additional citations and discussion of the classical work. Related work for kernel regression which gives similar sampling points: \cite{Muller:1984}.
+%	\item Some people just study standard sampling patters (grids, hexagonal grids, triangle grids, etc.) and look at how they perform on different optimal design of experiments criteria \cite{YfantisFlatmanBehar:1987}
+%	\item \cite{Muller:2007} is a good overview book on constructing designs for surfaces. Talks about how adding randomness to designs can increase their robustness, but says this is hard to quantify. To an extent, this is a problem we are addressing.
+%	\item \cite{SacksWelchMitchell:1989} very famous/well-cited paper on optimal experimental design for surfaces. Doesn't say much technically, but talks aobut how these things are hard to find, etc. 
+%\end{itemize}
+
+\end{document}

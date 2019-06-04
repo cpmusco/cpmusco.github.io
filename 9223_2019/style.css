@@ -1,0 +1,77 @@
+:root {
+    --jumbotron-padding-y: 2rem;
+  }
+  
+  .jumbotron {
+    padding-top: calc(var(--jumbotron-padding-y));
+    padding-bottom: var(--jumbotron-padding-y);
+    margin-bottom: 0;
+    background-color: #fff;
+  }
+  @media (min-width: 768px) {
+    .jumbotron {
+      padding-top: calc(var(--jumbotron-padding-y) * 3);
+      padding-bottom: calc(var(--jumbotron-padding-y) * 1);
+    }
+  }
+  
+  .jumbotron p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .jumbotron-heading {
+    font-weight: 300;
+  }
+  
+  .jumbotron .container {
+    max-width: 40rem;
+  }
+
+  .maintopic {
+      text-align: center;
+      padding-bottom: .5rem;
+  }
+
+  .courseinfo{
+    text-align: justify;
+    -webkit-hyphens: auto;
+      -moz-hyphens: auto;
+  }
+  
+  a {
+    color: #57068c;
+  }
+
+  .evenrow {
+    background-color: rgba(0,0,0,.05);
+  }
+
+  .oddrow {
+  }
+
+  .offday {
+    opacity: 0.3;
+  }
+
+  .tablesection {
+    background-color: #efd594;
+    text-align: center;
+    font-weight: bold;
+    margin: 0rem;
+  }
+
+  table tr th {
+    width: 9%;
+  }
+
+  table td:nth-child(2) {
+    width: 34%;
+  }
+
+  table td:nth-child(3) {
+    width: 25%;
+  }
+
+  table td:nth-child(4) {
+    width: 35%;
+  }
