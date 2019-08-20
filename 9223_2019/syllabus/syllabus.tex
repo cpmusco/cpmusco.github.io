@@ -1,4 +1,3 @@
-% basic setup
 \documentclass[10pt]{article}
 \usepackage{titlesec}
 \usepackage{geometry}
@@ -18,265 +17,202 @@
 \usepackage{enumitem}
 \usepackage{multicol}
 \usepackage{etoolbox}
-\patchcmd{\thebibliography}{\section*{\refname}}
-{\begin{multicols}{2}[\section*{\refname}]}{}{}
-	\patchcmd{\endthebibliography}{\endlist}{\endlist\end{multicols}}{}{}
-\newdimen\figrasterwd
-\figrasterwd.45\textwidth
 
 \definecolor{nyuDarkPurple}{HTML}{330662}
 \definecolor{nyuOfficialPurple}{HTML}{57068c}
 
-\setlength{\parskip}{.25em}
 \newcommand{\spara}[1]{\vspace{.5em}\noindent {\large\sffamily\textcolor{nyuOfficialPurple}{#1}}}
-\titleformat{\section}[runin]{\Large\sffamily\color{nyuDarkPurple}}{\thesection}{1em}{}
-\titleformat{\subsection}[runin]{\large\sffamily\color{nyuDarkPurple}}{\thesection}{1em}{}
-\titleformat{\subsubsection}[runin]{\normalsize\sffamily\color{gray}}{\thesection}{1em}{}
+\titleformat{\section}[hang]{\Large\sffamily\color{nyuDarkPurple}}{\thesection}{1em}{}
+\titleformat{\subsection}[hang]{\large\sffamily\color{nyuDarkPurple}}{\thesection}{1em}{}
+\titleformat{\subsubsection}[hang]{\normalsize\sffamily\color{gray}}{\thesection}{1em}{}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \lhead{\includegraphics[width=4cm]{tandon_long_color.eps}}
 \rhead{\thepage}
- 
- \newcommand{\specialcell}[2][c]{%
- 	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\pagenumbering{gobble}
 
 \setcounter{secnumdepth}{0}
 
 % math commands
 \DeclareMathOperator{\R}{\mathbb{R}}
 
-% bibliography commands
-\input{bib_macros}
-
 \begin{document}
 	
 \begin{center}
-	\LARGE\sffamily
-	\vspace{-1em}
-	A Theory for Smarter Data Acquisition
-%A THEORY FOR SMARTER DATA ACQUISITION
+	\normalsize
+	New York University Tandon School of Engineering
+	
+	Computer Science and Engineering
+	\medskip
 	
 	\large
-	Bloomberg Data Science Research Grant Proposal \\
+	CS-GY 9223I
+	 
+	Algorithmic Machine Learning and Data Science, Fall 2019
+	\medskip
+	
+	\normalsize
+	Professor Christopher Musco
+	
+	Wednesdays 3:20-5:50pm, Rogers Hall,  RGSH 707.
 \end{center} 
 
-\vspace{-.75em}
-\begin{center}
-\vspace{-.75em}
-\begin{tabular}{ll}
-\textbf{P. I.} & Christopher Musco, Assistant Professor \\
-\textbf{Department} & New York University, Computer Science and Engineering \\
-\textbf{Contact} & Email: \href{mailto:cmusco@nyu.edu}{cmusco@nyu.edu}, Phone: 401-578-2541, Webpage: \href{https://www.chrismusco.com}{chrismusco.com}  \\
-\textbf{Funding request} & \$64,990 in support of Ph.D. student collaborator
-\end{tabular}
-\vspace{-0em}
-\end{center}
+\subsection{PROFESSOR CONTACT}
+\begin{description}\itemsep0em 
+	\item[Email:] cmusco@nyu.edu.
+	\item[Office:] 370 Jay St., \#1155 (Floor 11).
+	\item[Office Hours:] Thursdays, 3-5pm, or by appointment.
+	\item[Course Webspage:] \url{https://www.chrismusco.com/9223_2019/}.
+\end{description} 
 
-\section{TECHNICAL DETAILS}
+\subsection{COURSE PREREQUISITES}
+I require a previous course in machine learning (for example, CS-UY 4563, CS-GY 6923, or ECE-GY 6143) and a previous course in algorithm design and analysis (for example, CS-UY 2413, CS-GY 6033, or CS-GY 6043). Experience with linear algebra and probability is also necessary. Email the course instructor if you have questions about your preparation for the course.
 
-\subsection{ABSTRACT}
-\vspace{-1em}
-While ``big data'' has been essential to many recent successes in data science, access to abundant, high quality data remains a rare luxury in most application domains. In contrast to areas like computer vision and language learning, where data is plentiful, collecting even a single example can be costly in fields like earth science and 
-medicine. Moreover, collected data often requires careful vetting and cleaning. As a result, in many application areas, insight is necessarily gleaned from ``small data'', not ``big data''.
+\subsection{COURSE DESCRIPTION}
+This course gives a behind-the-scenes look into the algorithms and computational methods that make machine learning and data science work at large scale. How does a service like Shazam match a sound clip to a library of 100 million songs in under a second? How do scientists find patterns in terabytes of genetic data? How can we efficiently train neural networks with millions of parameters on millions of labeled images? We will address these questions and others by studying advanced algorithmic techniques like randomization, approximation, sketching, optimization, and spectral methods, and Fourier methods. 
 
-Our goal is to boost the power of “small data” by designing algorithms for \emph{smarter data acquisition}. 
-%We seek to take advantage of a common situation in scientific modeling: even when collecting data is expensive, researchers often have a lot of control over which data points they collect. 
-Consider, for example, an ecologist forecasting fish population based on catch-and-release surveys. There is a high cost to collect each data point, which estimates population at a single time and geographic location. However, as in many scientific studies, the researcher has freedom in choosing exactly which data points are collected, and good choices can vastly reduce the number of surveys required to accurately model the entire fishery.
-This proposal describes an approach to solving the difficult problem of \emph{how} to make these choices.
+\subsection{COURSE OBJECTIVES}
+\begin{enumerate}
+\item Students will build experience with the most common algorithmic tools used in machine learning, including optimization, relaxation, spectral methods, Fourier methods, and Monte Carlo algorithms. They will also strengthen their understanding of the mathematical concepts behind these tools.
 
-In particular, to harness the potential of \emph{small data}, we will look towards mathematical tools developed for understanding \emph{big data}. The demands of large-scale data processing have necessitated a revolution in our ability to quickly identify the most important data points or features in large datasets using extremely efficiently randomized algorithms. We plan to adapt these methods to the problem of data acquisition by showing that they can used to construct non-uniform randomized data sampling strategies that are 1) robust to sample noise and corruption 2) computationally tractable and 3) general purpose.
-%In particular, to harness the potential of \emph{small data}, we look towards mathematical tools developed for understanding \emph{big data}. The demands of large-scale data processing have necessitated a revolution in our ability to quickly summarize datasets by using extremely efficiently randomized algorithms to identify important data points or features.
-%We plan to adapt these methods to the data acquisition problem by showing that they can with the goal of showing that carefully constructed randomized sampling strategies can be applied \emph{before data collection} to acquire data which is as informative as possible. This approach will ideally yield acquisition algorithms that are 1) robust to data noise and corruption 2) computationally tractable and 3) general purpose.
+\item Through problem sets and in-class assignments, students will practice applying, combining, and modifying the methods learned in lectures to specific problems in machine learning and data analysis. The goal is to prepare students to use these tools in industrial or academic positions where they are developing computationally efficient machine learning methods.
 
+\item Through assigned papers and discussions, students will improve their ability to read, summarize, and extract value from contemporary research papers in machine learning and data mining conferences like NeurIPS, ICML, KDD, ICLR and AAAI.
 
-\begin{figure}[h]
-	\vspace{-.5em}
-	\captionsetup{width=\linewidth}
-		\includegraphics[width=.196\textwidth]{fullSamples.png}
-		\includegraphics[width=.196\textwidth]{uniformSamples.png}
-		\includegraphics[width=.196\textwidth]{uniformSamplingErrorCrop.png}
-		\includegraphics[width=.196\textwidth]{leverageSamples.png}
-		\includegraphics[width=.196\textwidth]{leverageSamplingError.png}
-	\vspace{-1.5em}
-	\caption{A function fitting problem involving the percentage of clay in Narragansett Bay, RI marine sediments \cite{McMullen:2007}. A baseline estimate for clay density was obtained by interpolating a full grid of data. We then attempt to match the baseline using half the samples. Quantitatively and qualitatively, initial tests of the acquisition strategy described in this proposal (far right) outperform uniform random sampling (center).}
-%		, especially on the ``edges'' of the interpolation space.}
-	\label{fig:gansett}
-	\vspace{-1.5em}
-\end{figure}
+\item Students will learn how theoretical questions (involving asymptotic complexity, communication complexity, convergence rate, approximation quality, etc.) can guide the design of new algorithmic methods in machine learning. We will practice framing and rigorously answering such questions.
 
-\subsection*{PROBLEM FORMULATION} 
-We begin by describing a simple mathematical model for the data acquisition problem which will serve as a starting point for our research.
-
-Specifically, consider the problem of learning a real valued function $y$ which lies in some smooth or structured class of functions $\mathcal{F}: \R^d \rightarrow \R$. We can think of $d$ as small (1 or 2 dimensions when fitting a time series or spatial data). Common choices for $\mathcal{F}$ include low-degree polynomials, band-limited functions with bounded energy, etc.
-We are able to collect data samples $x_1, \ldots, x_s$ anywhere in some domain $\mathcal{X} \subset \R^d$. For each $x_i$, we observe $y(x_i) + \eta(x_i)$ for some ``corruption'' function $\eta: \R^d \rightarrow \R$. This function encapsulates random or adversarial measurement noise and can also account for model misspecification error: often the data being studied does not exactly fit a function in $\mathcal{F}$. 
-
-Our goal is to choose data points $x_1, \ldots, x_s$ that allow us to recover $\tilde{y} \in \mathcal{F}$ where $\|\tilde{y} - y\|_\mathcal{X}$ is small for some norm (e.g., the squared error $\|\tilde{y} - y\|_\mathcal{X} = \int_\mathcal{X}|\tilde y(x) - y(x)|^2 \,dx$). Ideally, we would like $\|\tilde{y} - y\|_\mathcal{X} < c \|\eta\|_\mathcal{X}$ for a small constant $c>1$ (for a fixed corruption function $\eta$, we cannot hope to achieve $\|\tilde{y} - y\|_\mathcal{X} < \|\eta\|_\mathcal{X}$).
-
-
-%Our go we cannot hope to Ideally, we hope to achieve $\|\tilde{y} - y\|_\mathcal{X} \leq c \|\eta\|_\mathcal{X}$ for some $c$ which is not much larger than 1.
-%
-%Of course, we can only recover an approximation to $y$ from finite samples if it is smooth or structured in some way. Formally,  we assume that there is a constrained class of functions $\mathcal{F}: \mathcal{X} \rightarrow \R$ and some $f \in \mathcal{F}$ such that $\|y - f\|_{\mathcal{X}}$ is small. with $\|y - \tilde{y}\|_{\mathcal{X}} \leq (1+\epsilon)\|y - f\|_{\mathcal{X}}$ for some error parameter $\epsilon$ (a smaller $\epsilon$ typically requires more samples). Common choices for $\mathcal{F}$ include all low-degree polynomials, band-limited functions with bounded energy, etc.
-
-
-%\begin{figure}[h]
-%	\centering
-%	\captionsetup{width=.85\linewidth}
-%	\begin{subfigure}[t]{0.48\textwidth}
-%		\centering
-%		\includegraphics[width=.7\textwidth]{sampledSignal.eps}
-%		\caption{If $y$ is not smooth or structured, we cannot meaningfully approximate it based on a finite number of samples.}
-%	\end{subfigure}
-%	~
-%	\begin{subfigure}[t]{0.48\textwidth}
-%		\centering
-%		\includegraphics[width=.7\textwidth]{reconstructedSignal.eps}
-%		\caption{We assume $y$ is close to some signal in $\mathcal{F}$.}
-%	\end{subfigure}
-%	\vspace{-.5em}
-%	\caption{However, .}
-%	\label{fig:basic_problem}
-%\end{figure}
-
-\vspace{-2em}
-\subsubsection{PRIOR WORK} This above problem has been studied extensively in many research communities, including applied mathematics (approximation theory), signal processing (sampling theory), and statistics (optimal design of experiments).
-Classical results in these areas include the use of Chebyshev nodes for interpolating polynomials \cite{Powell:1981}, quadrature rules based on Prolate Spheroidal Wave Functions for fitting band-limited functions \cite{ShkolniskyTygertRokhlin:2006, SlepianPollak:1961}, and optimal closed form solutions to many experiment design problems \cite{FedorovHackl:1994,KieferWolfowitz:1959}. 
-
-However, while mathematically elegant and sample efficient, most known data acquisition strategies are \emph{brittle}. Many are highly tailored to $\mathcal{F}$ and $\mathcal{X}$. Generalizing to more complex domains (e.g., to the irregular $\mathcal{X}$ in Figure \ref{fig:gansett}) leads to exponential time selection methods that are difficult to implement in practice \cite{Muller:2007}. Moreover, many approaches require strong assumptions on $\eta$ (roughly, that it is small \emph{for all} $x\in \mathcal{X}$, instead of e.g., small on average). They fail to recover functions corrupted by non-uniform or adversarial noise.
-
-\vspace{-.75em}
-\subsection*{PROPOSED APPROACH} 
-
-\begin{wrapfigure}{r}{0.45\textwidth}
-	\vspace{-1.5em}
-	\centering
-	\parbox{\figrasterwd}{
-		\parbox{.4\figrasterwd}{%
-			\hspace{.1em}\includegraphics[width=.98\hsize]{intervalLscores.png}
-			\includegraphics[width=\hsize]{circleLscores.png}
-		}
-		\hskip1em
-		\parbox{.51\figrasterwd}{%
-			\includegraphics[width=\hsize]{gansettLscores.png}
-		}
-	}
-	\vspace{-.85em}
-	\caption{Leverage score based data sampling distributions for various regions $\mathcal{X}$: an interval in $\R$, the unit circle in $\R^2$, and the Narraganset bay boundary. Like many deterministic data acquisition patterns (e.g., Cheybshev nodes), the distributions concentrate samples near $\mathcal{X}$'s boundary.}
-	\label{fig:levscores}
-\vspace{-1.4em}
-\end{wrapfigure}
-
-We plan to address the data acquisition problem from a new perspective, by drawing on techniques developed for designing \emph{data sketching} algorithms \cite{DrineasMahoney:2016}. Arising from the need to accelerate inference and model fitting on large datasets, the goal of sketching is to rapidly summarize data by distilling it down to a small, informative set of features or examples (often called a ``coreset''). Ideally, this small summary can be used to approximately optimize a model over the full dataset, at a much lower computational cost.
-
-Many algorithms for data sketching are based on \emph{importance sampling}: the goal is to quickly compute a ``score'' for each data point and to then \emph{independently} sample points with probability proportional to their score. More ``important'' data is sampled with higher probability. This approach offers a simpler and faster alternative to algorithms that explicitly consider dependencies between data points \cite{DeshpandeRademacherVempala:2006}. Yet remarkably, for standard models like PCA, regression, kernel methods, and common clustering objectives, little is lost from treating data independently: recent breakthroughs in high dimensional concentration of measure (e.g., matrix concentration) can be used to show that importance sampling leads to near optimal data compression \cite{Tropp:2012}. 
-This finding raises a natural question: 
-\begin{center}
-	\vspace{-.5em}
-	\textbf{Can importance sampling be used for effective, even nearly optimal, data acquisition?}
-	\vspace{-.5em}
-\end{center}
-Along with collaborators at EPFL and Tel Aviv University we began exploring this question while developing sketching algorithms for certain kernel problems \cite{AvronKapralovMusco:2017}. 
-We started by  extending a common measure of importance known as the “statistical leverage score” to continuous intervals in $\R^d$. Surprisingly, we were able to prove that, when $\mathcal{X}$ is an interval in $\R$, simply sampling points according to this continuous measure is competitive with the best known data acquisition strategies for polynomial regression, bandlimited function fitting, and several Gaussian process regression problems \cite{AvronKapralovMusco:2019}. 
-Moreover, the randomized approach offers a number of concrete advantages over prior methods: 
-\vspace{-.5em}
-\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
-	\itemsep0em 
-	\item \textbf{Robustness.} The randomly selected data points can be used to provably recover $y$ under much weaker assumptions than deterministic methods: $\eta$ only needs to be bounded \emph{on average} instead of uniformly on $\mathcal{X}$.
-%		Prior methods only recover $y$ under strong assumptions. For example, many results in approximation theory assume an $f\in \mathcal{F}$ with $\max_\mathcal{X}|y - f|$ bounded. Similarly, most results in optimal experiment design implicitly require that $y - f$ looks like independent random noise. We seek methods that work in a more robust setting, where $y$ may be a smooth function corrupted by non-uniform and even adversarial noise. 
-	\item \textbf{Computational efficiency.} For simple regions like an interval in $\R$, $s$ data points can be selected in $O(s)$ time. For more complex regions, simple polynomial time approximation algorithms can be used.
-%	
-%	While closed form and provable optimal data acquisition patterns can be computed for simple problems, like fitting polynomials over intervals in $\R$ \cite{KieferWolfowitz:1959}, generalizations of most prior work (e.g. for the irregular domain of the problem in Figure \ref{fig:gansett}) lead to exponential time algorithms for selecting data samples \cite{Muller:2007}, making them impossible to implement in practice.
-	\item \textbf{Generality.} Our result uses the \emph{same distribution} to select a nearly optimal set of data points for a wide variety of function classes $\mathcal{F}$, including all the examples listed above.
-	Often when a scientist is collecting data, they do not know exactly how it will be analyzed. In contrast to prior work, our approach offers the possibility of choosing a model \emph{after} data collection, without sacrificing sample efficiency.
+\item The course will prepare students to contribute to research projects on computational methods for machine learning and data science.
 \end{enumerate}
 
+\subsection{COURSE STRUCTURE}
+
+One meeting per week, involving both lecture and in class assignments. 4 \textbf{problem sets} involving analysis and application of methods learned in class, potentially with programming exercises to further explore lecture content (40\% of grade). \textbf{In-class midterm exam} (20\% of grade, scheduled for \textbf{10/23}). \textbf{Final exam} (30\% of grade). \textbf{Class participation} is the remaining 10\% of the grade. 
+
+\medskip\noindent Our meeting period is  2.5 hours long. We will typically begin and end with lecture, pausing in the middle of class for a break and also to work on (non-graded) in class assignments, which will resemble problem set questions. Solutions will be reviewed together in class. 
+
+\subsection{READINGS}
+\textit{There is no textbook to purchase}. Many of the topics covered are new, and not sufficiently addressed in existing textbooks. Course material will consist of my written lecture notes, as well as assorted online resources, including papers, notes from other courses, and publicly available surveys. Please refer to the course webpage (\url{https://www.chrismusco.com/9223_2019/}) before and after lecture to obtain links.
 
 
-%\begin{figure}[h]
-%	\vspace{-.5em}
-%	\centering
-%	\captionsetup{width=\linewidth}
-%		\includegraphics[height=.3\textheight]{gansettLscores.png}
-%		\includegraphics[height=.15\textheight]{intervalLscores.png}
-%~
-%		\includegraphics[height=.15\textheight]{circleLscores.png}
-%~
-%
-%	\vspace{-.75em}
-%	\caption{Something}
-%	\label{fig:gansett}
-%	\vspace{-1.5em}
-%\end{figure}
+\subsection{COURSE REQUIREMENTS}
+\medskip\noindent\textbf{Lectures:} Attend each lecture and participate in all in-class assignments, including in discussing solutions.
 
-\vspace{-1.5em}
-\subsubsection{NEXT STEPS}
-These promising initial results have raised a number of important questions. The P.I. has identified three of immediate importance which we plan to address with the support of a grant from Bloomberg:
-\vspace{-2em}
-\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
-	\itemsep0em 
-	\item \textbf{Extending to higher dimensions.} While our underlying importance sampling algorithm easily extends to higher dimensions and performs well in initial experiments (see Figure \ref{fig:levscores}), we would like to obtain provable guarantees. We expect that doing so for 2 and 3 dimensions is well within the year long scope of this project and important for many applications. Extending to arbitrary dimension $d$ is a reach goal.
+\medskip\noindent\textbf{Problem sets:} Complete all problem sets by the specific due date. The following tentative due datas are subject to change:
+\begin{itemize}\itemsep0em 
+	\item Problem Set 1, Due 9/25.
+	\item Problem Set 2, Due 10/16.
+	\item Problem Set 3, Due 11/20.
+	\item Problem Set 4, Due 12/13.
+\end{itemize}
+
+\noindent While not required, I encourage students to prepare problem sets in LaTeX or Markdown (with math support.) Students will receive 10\% extra credit on Problem Set 1 for preparing it in LaTeX or Markdown.
+
+\medskip\noindent\textbf{Problem set collaboration policy:} \textit{Discussion of high-level ideas for solving problems is allowed, but all solutions and any code must be written up independently.} This reflects the reality that research and algorithm design in machine learning are rarely done alone. However, any machine learning practitioner must be able to communicate and work through the details of a solution individually.
+
+Students must name any collaborators they discussed problems with on their assignments (list at the top of each problem separately). Do not write in parallel with other students: if problem ideas are discussed, solutions should be written at a later time, individually. I take this policy very seriously. Do not paraphrase, change variables, or in anyway copy another students solution. 
+	
+\medskip\noindent\textbf{Midterm:} Take the midterm exam, which will be held during the first half of class on \textbf{October 23rd}. Please let me know ASAP if you will not be able to attend that day so that we can make alternative arrangements.
+	
+\medskip\noindent\textbf{Final:} Take the final exam, which will be held during standard class hours (at 3:20pm) on \textbf{December 18th}. Undergraduates should let me know ASAP if this conflicts with any of your other scheduled exams. 
+
+
+\subsection{COURSE SCHEDULE}
+The following schedule is tentative and subject to change.
+\subsubsection{THE POWER OF RANDOMNESS}
+\begin{enumerate}\itemsep0em 
+	\item 9/4, Concentration of random variables + applications to hashing and data streams		
+	\item 9/11, The Johnson-Lindenstrauss lemma + applications to high dimensional data		
+	\item 9/18, Nearest neighbor search + locality sensitive hashing
 \end{enumerate}
 
-\begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
-	\itemsep0em 
-	\addtocounter{enumi}{1} 
-	\item \textbf{Handling complex domains.} One of the major advantages of importance sampling over many deterministic data acquisition schemes is that it can be applied to domains $\mathcal{X}$ with complex shape and structure. Formally characterizing sample complexity over such regions remains an important open question.
-	\item \textbf{Understanding adaptivity.} Recent work on data acquisition for scientific applications takes advantage of \emph{adaptivity} to boost the potential of small data even further. I.e., past data samples are used to inform the choice of new points for collection \cite{SrinivasKrauseKakade:2010}. We hope to understand if our approach can be combined with adaptive algorithms, providing the same robustness is adds to the batch data acquisition problem.
+\subsubsection{OPTIMIZATION}
+\begin{enumerate}\itemsep0em 
+	\setcounter{enumi}{3}
+	\item 9/25,	Convexity in machine learning + vanilla, stochastic, and online gradient descent		
+	\item 10/2,	Conditioning, acceleration, coordinate descent, quasi-Newton methods		
+	\item 10/9,	Beyond convexity: training neural networks and other non-convex models		
+	\item 10/16, Learning from experts + multiplicative weights		
+	\item 10/23, Constrained optimization, linear + semidefinite programming, interior point methods.
 \end{enumerate}
 
-\vspace{-1.5em}
-\section*{BUDGET}
-The P.I. is applying to fund a Ph.D. student collaborator for one year. The student to be supported is not finalized, but will likely be Fan Yao, who holds an M.S. from Peking University. A detailed budget prepared by NYU's Office of Sponsored Programs is included below\footnote{Graduate students receive tuition remission calculated at 51\% of salary. Please refer to \href{http://www.nyu.edu/research/resources-and-support-offices/sponsored-programs/proposal-development/nyu-administrative-information-for-proposal-preparation.html}{OSP website} for more information.
-}. Travel expenses include the cost of one domestic conference and one visit to outside collaborators at either EPFL or Tel Aviv University.
+\subsubsection{SPECTRAL METHODS AND LINEAR ALGEBRA}
+\begin{enumerate}\itemsep0em 
+\setcounter{enumi}{8}
+\item 10/30, Singular value decomposition, Krylov methods + application to spectral clustering.		
+\item  11/6, Randomized linear algebra, sketching for linear regression, ε-nets arguments.
+\item 11/13, Importance sampling, leverage scores, active learning.
+\end{enumerate}
 
-\vspace{-.75em}
-\begin{center}
-\includegraphics[width=\textwidth]{budgetPDF.pdf}
-\end{center}
+\subsubsection{FOURIER METHODS}
+\begin{enumerate}\itemsep0em 
+	\setcounter{enumi}{11}
+	\item 11/20, The Fourier transform, DFT, FFT + applications
+	\item 12/4, Compressed sensing, the restricted isometry property, basis pursuit		
+	\item 12/11, Kernel methods in machine learning, random Fourier features
+\end{enumerate}
 
-%\begin{table}[h]
-%\begin{tabular}{llr}
-%	\toprule
-%	Budget Line Item & Details & Amount \\
-%	\midrule
-%	Graduate Research Assistant  & & \\
-%		\phantom{ZZ} 12 month salary & 3,250.00 per month. & 39,000.00 \\
-%		\phantom{ZZ} Tuition remission & Fixed 51\% of salary.\footnotemark & 19,890.00 \\
-%		\phantom{ZZ} Domestic conference travel & Based on GSA rates. &    1,200.00 \\
-%		\phantom{ZZ} Student conference registration &  &    300.00 \\
-%		\phantom{ZZ} International travel (research collaboration)  & To visit either EPFL. &    2,900.00  \\
-%		& or Tel Aviv University & \\
-%	\textsc{Total Project Cost}                      & & {\textbf{\$ 63,290.00}}\\
-%	\bottomrule                
-%\end{tabular}
-%\end{table}
+\subsection{ADDITIONAL INFORMATION}
 
-\vspace{-1.75em}
-\section*{DATA POLICY}
-In keeping with the P.I.'s past research record, all work published under this project will be made freely and openly available through \href{https://www.arXiv.org}{arXiv.org} before appearing in conference proceedings or a journal. As a policy, work will not be submitted to venues that do not allow cross-posting to arXiv. Any software or code produced under this grant will also be made publicly available, under an open source license. The P.I.'s past software has typically been released through \href{https://www.github.com}{github.com} under the MIT open source license. 
+\subsubsection{MOSES CENTER STATEMENT OF DISABILITY.}
 
-\vspace{-1.25em}
-\footnotesize
-\bibliographystyle{plain}
-\bibliography{proposal}
+If you are student with a disability who is requesting accommodations, please contact New York University’s Moses Center for Students with Disabilities (CSD) at 212-998-4980 or mosescsd@nyu.edu.  You must be registered with CSD to receive accommodations.  Information about the Moses Center can be found at \url{www.nyu.edu/csd}. The Moses Center is located at 726 Broadway on the 3rd floor.
+
+\subsubsection{NYU SCHOOL OF ENGINEERING POLICIES AND PROCEDURES ON ACADEMIC MISCONDUCT.}
+The complete Student Code of Conduct can be found \href{https://engineering.nyu.edu/campus-and-community/student-life/office-student-affairs/policies/student-code-conduct}{here}.
+
+\begin{enumerate}[label=\Alph*.]\itemsep0em 
+
+\item Introduction: The School of Engineering encourages academic excellence in an environment that promotes honesty, integrity, and fairness, and students at the School of Engineering are expected to exhibit those qualities in their academic work. It is through the process of submitting their own work and receiving honest feedback on that work that students may progress academically. Any act of academic dishonesty is seen as an attack upon the School and will not be tolerated. Furthermore, those who breach the School’s rules on academic integrity will be sanctioned under this Policy. Students are responsible for familiarizing themselves with the School’s Policy on Academic Misconduct.
+
+\item	Definition: Academic dishonesty may include misrepresentation, deception, dishonesty, or any act of falsification committed by a student to influence a grade or other academic evaluation. Academic dishonesty also includes intentionally damaging the academic work of others or assisting other students in acts of dishonesty. Common examples of academically dishonest behavior include, but are not limited to, the following:
+\begin{enumerate}[label=\arabic*.]\itemsep0em 
+	\item	Cheating: intentionally using or attempting to use unauthorized notes, books, electronic media, or electronic communications in an exam; talking with fellow students or looking at another person’s work during an exam; submitting work prepared in advance for an in-class examination; having someone take an exam for you or taking an exam for someone else; violating other rules governing the administration of examinations.
+	\item	Fabrication:  including but not limited to, falsifying experimental data and/or citations.
+	\item	Plagiarism: intentionally or knowingly representing the words or ideas of another as one’s own in any academic exercise; failure to attribute direct quotations, paraphrases, or borrowed facts or information. 
+	\item	Unauthorized collaboration: working together on work meant to be done individually.
+	\item	Duplicating work: presenting for grading the same work for more than one project or in more than one class, unless express and prior permission has been received from the course instructor(s) or research adviser involved. 
+	\item	Forgery: altering any academic document, including, but not limited to, academic records, admissions materials, or medical excuses.
+\end{enumerate}
+\end{enumerate}
+
+\subsubsection{NYU SCHOOL OF ENGINEERING POLICIES AND PROCEDURES ON EXCUSED ABSENCES.}
+The complete policy can be found \href{https://engineering.nyu.edu/campus-and-community/student-life/office-student-affairs/policies#chapter-id-30199}{here}.
+\begin{enumerate}[label=\Alph*.]\itemsep0em 
+	\item Introduction:  An absence can be excused if you have missed no more than 10 days of school. If an illness or special circumstance has caused you to miss more than two weeks of school, please refer to the section labeled Medical Leave of Absence.
+	
+	\item Students may request special accommodations for an absence to be excused in the following cases:
+
+	\begin{enumerate}[label=\arabic*.]\itemsep0em 
+		\item	Medical reasons
+		\item	Death in immediate family
+		\item	Personal qualified emergencies (documentation must be provided)
+		\item	Religious Expression or Practice	
+	\end{enumerate}
+
+\end{enumerate}
+Deanna Rayment, deanna.rayment@nyu.edu, is the Coordinator of Student Advocacy, Compliance and Student Affairs and handles excused absences. She is located in 5 MTC, LC240C and can assist you should it become necessary. 
+
+\subsubsection{NYU SCHOOL OF ENGINEERING ACADEMIC CALENDAR}
+The full calendar can be found \href{https://www.nyu.edu/registrar/calendars/university-academic-calendar.html#1198}{here}.
+
+The last day of the final exam period is Friday, December 20, 2019. Final exam dates for undergraduate courses will not be determined until later in the semester. Final exams for graduate courses will be held on the last day of class during the week of December 16, 2019 -- December 20, 2019.  If you have two final exams at the same time, report the conflict to your professors as soon as possible. Do not make any travel plans until the exam schedule is finalized. 
+
+Also, please pay attention to notable dates such as Add/Drop, Withdrawal, etc. For confirmation of dates or further information, please contact Susana: sgarcia@nyu.edu 
 
 
-%\subsection{RELATED WORK}
-%Randomized data acquisition methods are:
-%Robust (e.g. can deal with l2 noise and adversarial corruptions)
-%Generic (collect data can be used for many downstream tasks
-%Flexible 
-%
-%\begin{itemize}
-%	\item Optimal Experiment Design for polyonomial regression is well studied in classic statistics literature. One big name in the area is Jack Kiefer. \cite{KieferWolfowitz:1959} is very well cited and shows optimality of essentially the Chebyshev nodes for a not very standard notion of optimality. Follow up work on D-optimality \cite{Kiefer:1961}. Classic work on optimality if you sample at peaks of legendre polynomials \cite{Guest:1958}. Follow up work for another type of D-optimal design 
-%	\cite{Studden:1980} and E-design \cite{PukelsheimStudden:1993}, which again uses Chebyshev nodes. And a good paper that summarizes this work \cite{Stigler:1971}.
-%	\item Book on approximation theory: \cite{MasonHandscomb:2002} which talks about Chebyshev node optimality and Powell's og book: \cite{Powell:1981}
-%	\item Future work would consider an active learning set up where you can adjust where you sample depending on values you receive. There has been work on this. One well cited paper is \cite{SrinivasKrauseKakade:2010}.
-%	\item Old well cited paper on optimal experiment design for spatial sampling for Gaussian processes: \cite{ShewryWynn:1987}. Gives a heuristic algorithm to find an optimal grid based on an entropy criterion which concentrates points near edges. Lots of follow up work uses greedy algorithms.
-%	\cite Some work including this one studies what happens when you look at the asymptotic density of design points. Might be relevant to our techinques which define a distribution over all points: \cite{SacksYlvisaker:1968}. See \cite{FedorovHackl:1994} for additional citations and discussion of the classical work. Related work for kernel regression which gives similar sampling points: \cite{Muller:1984}.
-%	\item Some people just study standard sampling patters (grids, hexagonal grids, triangle grids, etc.) and look at how they perform on different optimal design of experiments criteria \cite{YfantisFlatmanBehar:1987}
-%	\item \cite{Muller:2007} is a good overview book on constructing designs for surfaces. Talks about how adding randomness to designs can increase their robustness, but says this is hard to quantify. To an extent, this is a problem we are addressing.
-%	\item \cite{SacksWelchMitchell:1989} very famous/well-cited paper on optimal experimental design for surfaces. Doesn't say much technically, but talks aobut how these things are hard to find, etc. 
-%\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
