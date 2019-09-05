@@ -61,17 +61,17 @@
   }
 
   table tr th {
-    width: 9%;
+    width: 10%;
   }
 
   table td:nth-child(2) {
-    width: 34%;
+    width: 30%;
   }
 
   table td:nth-child(3) {
-    width: 25%;
+    width: 15%;
   }
 
   table td:nth-child(4) {
-    width: 35%;
+    width: 45%;
   }
