@@ -46,6 +46,16 @@ a:hover {
   font-weight: normal;
 }
 
+.bonus{
+  color: #7020da;
+  text-decoration: none;
+}
+
+.authors{
+  font-weight: 500;
+}
+
+
 h3, h4 {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: normal;
