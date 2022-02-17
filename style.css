@@ -8,14 +8,17 @@ body {
   font-family: 'Merriweather', serif;
   font-weight: lighter;
   text-align: justify;
-  -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-  hyphens: auto;
 }
 
 .header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 30px;
+}
+
+.intro {
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 
 .footer {
