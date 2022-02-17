@@ -1,4 +1,7 @@
-/* Space out content a bit */
+html {
+  font-size: 14px;
+}
+
 body {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -10,24 +13,16 @@ body {
   hyphens: auto;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-/* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 30px;
 }
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  padding-bottom: 19px;
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
+
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+  font-size: .75em;
 }
 
 a {
@@ -54,134 +49,31 @@ a:hover {
   font-weight: 500;
 }
 
+b {
+  font-weight: 600;
+}
 
-h3, h4 {
+h1, h2, h3, h4 {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: normal;
 }
 
-h3 {
+h1 {
   font-size: 3em;
 }
 
-h4 {
-  font-size: 2em;
+.container {
+  max-width: 753px;
 }
 
-p {
-  padding-bottom: 1px;
-  padding-top: 1px;
+.btn-light.active {
+  background-color: #DAE0E5;
 }
 
-.picture {
-  width: 46%;
-  display: inline-block;
+.btn-light{
+	box-shadow: none !important
 }
 
-.picture img {
-  width: 100%;
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-  font-size: .75em;
-}
-
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 753px;
-  }
-}
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.top {
-  text-align: left;
-  font-size: 14px;
-}
-
-#intro {
-  float: right;
-  width: 53%;
-  text-align: justify;
-  -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-  hyphens: auto;
-  padding-left: 2%;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-
-  .picture img {
-    width: 100%;
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-right: 0;
-    padding-left: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
-}
-
-@media(max-width:375px) {
-  .picture {
-    width: 90%;
-  }
-
-  .top {
-    text-align:center;
-  }
-
-  #intro {
-	float: none;
-    width: 90%;
-    text-align: center;
-    padding-top: 10%;
-    font-size: 12px;
-    margin-left: 4%;
-  }
-
-  h3 {
-    text-align: center;
-    font-size: 2.5em;
-  }
-
-  h4 {
-    font-size: 2em;
-  }
-
-  .contact p {
-    font-size: 12px;
-    text-align: center;
-  }
-
-  p {
-    font-size: 12px;
-    text-align: left;
-  }
+.hide {
+  display: none;
 }
