@@ -1,0 +1,7 @@
+Randomized Numerical Linear Algebra
+Krylov Subspace Methods
+Graphs and Networks
+Sketching and Streaming
+Graphs and Networks
+Social Network Opinion Dynamics
+Application Focused
