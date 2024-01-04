@@ -48,6 +48,11 @@ a:hover {
   text-decoration: none;
 }
 
+.nyulink{
+  color: #56018D;
+  text-decoration: none;
+}
+
 .authors{
   font-weight: 500;
 }
