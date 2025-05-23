@@ -128,7 +128,8 @@
             <button type="button" class="btn btn-light" id="btn-sampling">Sample Efficient Learning</button>
             <button type="button" class="btn btn-light" id="btn-graph">Graphs Algorithms</button>
             <button type="button" class="btn btn-light" id="btn-opinion">Social Networks and Opinion Dynamics</button>
-            <button type="button" class="btn btn-light" id="btn-application">Application Focused</button>
+            <button type="button" class="btn btn-light" 
+            id="btn-misc">Miscellaneous</button>
           </div>
 
           <p class="paper nla sketch">
@@ -141,7 +142,7 @@
             Preprint.
           </p>
 
-          <p class="paper nla application">
+          <p class="paper nla">
             <a href="https://arxiv.org/abs/2505.16932">
                The Polar Express: Optimal Matrix Sign Methods and Their Application to the Muon Algorithm 
             </a></br>
@@ -152,7 +153,7 @@
           </p>
 
 
-          <p class="paper application graph">
+          <p class="paper graph">
             <a href="https://arxiv.org/abs/2505.15636">
               Distance Adaptive Beam Search for Provably Accurate Graph-Based Nearest Neighbor Search
             </a></br>
@@ -172,7 +173,7 @@
             Preprint.
           </p> -->
 
-          <p class="paper application nla">
+          <p class="paper nla misc">
             <a href="https://arxiv.org/abs/2408.12385">
               Sharper Bounds for Chebyshev Moment Matching with Applications to Differential Privacy and Beyond
             </a></br>
@@ -183,7 +184,7 @@
             Preliminary version in Theory and Practice of Differential Privacy.
           </p>
 
-          <p class="paper application">
+          <p class="paper misc">
             <a href="https://arxiv.org/abs/2408.07978">
               Coupling without Communication and Drafter-Invariant Speculative Decoding
             </a></br>
@@ -203,7 +204,7 @@
             Preprint.
           </p>
 
-          <p class="paper application sampling nla">
+          <p class="paper sampling nla">
             <a href="https://arxiv.org/abs/2410.01917">
             Provably Accurate Shapley Value Estimation via Leverage Score Sampling
             </a></br>
@@ -283,7 +284,7 @@
             <a class="bonus" href="./lanczos_optimality.pdf">Slides: 60 Minutes.</a>
           </p>
 
-          <p class="paper application sampling">
+          <p class="paper sampling">
             <a href="https://arxiv.org/abs/2409.04500">
               Benchmarking Estimators for Natural Experiments: A Novel Dataset and a Doubly Robust Algorithm
             </a></br>
@@ -347,7 +348,7 @@
             <b>Invited for oral presentation.</b></br>
           </p>
 
-          <p class="paper application">
+          <p class="paper misc">
             <a href="https://arxiv.org/abs/2312.11712">
               A Simple and Practical Method for Reducing the Disparate Impact of Differential Privacy
             </a></br>
@@ -468,7 +469,7 @@
             International Workshop on Mining and Learning with Graphs (workshop at KDD 2022).
           </p>
 
-          <p class="paper application">
+          <p class="paper misc">
             <a href="https://pubs.rsc.org/en/content/articlelanding/2022/re/d2re00005a/">
               Chemically-informed data-driven optimization (ChIDDO): Leveraging physical models and Bayesian learning to accelerate chemical research
             </a></br>
@@ -476,7 +477,7 @@
             Reaction Chemistry & Engineering 2022.
           </p>
 
-          <p class="paper sketch application">
+          <p class="paper sketch">
             <a href="./EuroVis22.pdf">
               Streaming Approach to In Situ Selection of Key Time Steps for Time-Varying Volume Data
             </a></br>
@@ -540,7 +541,7 @@
             ACM Special Interest Group on Management of Data Conference. (SIGMOD 2021).
           </p>
 
-          <p class="paper graph application">
+          <p class="paper graph">
             <a href="https://arxiv.org/abs/2103.16084">
             Public Transport Planning: When Transit Network Connectivity Meets Commuting Demand
             </a></br>
@@ -548,7 +549,7 @@
             ACM Special Interest Group on Management of Data Conference. (SIGMOD 2021).
           </p>
 
-          <p class="paper graph application">
+          <p class="paper graph">
             <a href="https://arxiv.org/abs/2006.12334">
             Graph Learning for Inverse Landscape Genetics
             </a></br>
@@ -681,7 +682,7 @@
             <a class="bonus" href="./ridgeLeverageHour.pdf">Slides: 60 Minutes.</a>
           </p>
 
-          <p class="paper application">
+          <p class="paper misc">
             <a href="https://arxiv.org/abs/1601.04203">Determining Tournament Payout Structures for Daily Fantasy Sports</a></br>
             <span class="authors">Christopher Musco, Maxim Sviridenko, Justin Thaler</span></br>
             SIAM Algorithm Engineering and Experiments (ALENEX 2017).</br>
@@ -716,7 +717,7 @@
             We posted a note titled <a href="https://arxiv.org/abs/2004.08434">Projection-Cost-Preserving Sketches: Proof Strategies and Constructions</a> which presents simplified proofs of the results in this paper and <a href="https://arxiv.org/abs/1511.07263">our 2017 work</a>.
           </p>
 
-          <p class="paper application">
+          <p class="paper misc">
             <a href="https://www.ndss-symposium.org/ndss2015/ndss-2015-programme/principled-sampling-anomaly-detection/">Principled Sampling for Anomaly Detection</a></br>
             <span class="authors">Brendan Juba, Fan Long, Christopher Musco, Stelios Sidiroglou-Douskos, Martin Rinard</span></br>
             Network and Distributed System Security Symposium (NDSS 2015).</br>
@@ -809,9 +810,9 @@
         });
       });
       $(document).ready(function(){
-        $("#btn-application").click(function(){
-          $(".application").removeClass("hide");
-          $(".paper").not('.application').addClass("hide");
+        $("#btn-misc").click(function(){
+          $(".misc").removeClass("hide");
+          $(".paper").not('.misc').addClass("hide");
         });
       });
     </script>
