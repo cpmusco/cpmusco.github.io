@@ -1,0 +1,761 @@
+%!LW recipe=latexmk-xelatex
+\documentclass[11pt,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{banking}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{grey}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+\renewcommand*{\namefont}{\fontsize{30}{10}\mdseries\upshape}
+\renewcommand*{\sectionfont}{\fontsize{14}{18}\mdseries\upshape}
+
+\definecolor{websiteColor}{HTML}{DAA520}
+\definecolor{nyuDarkPurple}{HTML}{330662}
+\definecolor{nyuOfficialPurple}{HTML}{57068c}
+
+% for nyu colors
+%\newcommand\colorhref[3][nyuOfficialPurple]{\href{#2}{\color{#1}#3}}
+%\newcommand\cventryreviewer[3]{\cvitemwithcomment{#1}{#2}{\normalsize#3}}
+%\name{\textcolor{nyuOfficialPurple}{Christopher}}{\textcolor{nyuOfficialPurple}{Musco}}
+
+% for current website colors
+\usepackage{comment}  
+\newcommand\colorhref[3][websiteColor]{\href{#2}{\color{#1}#3}}
+\newcommand\cventryreviewer[3]{\cvitemwithcomment{#1}{#2}{\normalsize#3}}
+\name{\textcolor{websiteColor}{Christopher}}{\textcolor{websiteColor}{Musco}}
+
+
+\renewcommand*{\cventry}[7][.25em]{
+	\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}%
+		{\bfseries #4} & {\bfseries #5} \\%
+		{\itshape #3\ifthenelse{\equal{#6}{}}{}{, #6}} & {\itshape #2}\\
+	\end{tabular*}%
+	\ifx&#7&%
+	\else{\\\vbox{\small#7}}\fi%
+	\par\addvspace{#1}}
+
+\newcommand*{\cventrynospace}[7][.25em]{
+	\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}%
+		{\bfseries #4}
+	\end{tabular*}%
+	\ifx&#7&%
+	\else{\\\vbox{\small#7}}\fi%
+	\par\addvspace{#1}}
+
+\newcommand*{\cventrynocity}[7][.25em]{
+	\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}%
+		{\bfseries #4} & {\itshape #2} \\%
+		{\itshape #3\ifthenelse{\equal{#6}{}}{}{, #6}} & {\itshape}\\%
+	\end{tabular*}%
+	\ifx&#7&%
+	\else{\\\vbox{\small#7}}\fi%
+	\par\addvspace{#1}}
+%\renewcommand*{\subsectionfont}{\fontsize{12}{40}\mdseries\upshape}
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=.8]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+
+% personal data
+
+%\title{Resumé title}                               % optional, remove / comment the line if not wanted
+\address{370 Jay Street, Floor 11}{Brooklyn, NY 11201}{Office  1105}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+%\phone[mobile]{+1~(234)~567~890}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+%\phone[fixed]{(646)~997~3346}   
+\phone[fixed]{(401)~578~2541}  
+%\phone[fax]{+3~(456)~789~012}
+\email{cmusco@nyu.edu}                               % optional, remove / comment the line if not wanted
+\homepage{www.chrismusco.com}                         % optional, remove / comment the line if not wanted
+%\social[linkedin]{john.doe}                        % optional, remove / comment the line if not wanted
+%\social[twitter]{jdoe}                             % optional, remove / comment the line if not wanted
+%\social[github]{jdoe}                              % optional, remove / comment the line if not wanted
+%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+	%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+	%-----       resume       ---------------------------------------------------------
+	\makecvtitle
+	\vspace{-3em}
+	\section{Academic Positions}
+	\cventry{}{\textit{Department of Computer Science and Engineering}
+	}{New York University, Tandon School of Engineering}{New York, NY}{}{}
+	\cvitemwithcomment{}{Institute Associate Professor}{\normalsize 2025 - present}
+	\cvitemwithcomment{}{Assistant Professor}{\normalsize 2019-2025}
+	
+	\vspace{1em}
+	\hrule
+	\vspace{1em}
+
+	\cventry{Spring 2026}{Visiting Scholar, Institute for Computational and Experimental Research in Mathematics}{Brown University}{Providence, RI}{}{}
+
+	\cventry{Fall 2025}{Visiting Researcher, Simons Institute for the Theory of Computing}{University of California, Berkeley}{Berkeley, CA}{}{}
+	
+	\cventry{Summer 2020}{Visiting Researcher, Machine Learning and Optimization Group}{Microsoft Research}{Redmond, WA}{}{}
+	
+	\cventry{2018 -- 2019}{Research Instructor, Department of Computer Science}{Princeton University}{Princeton, NJ}{}{}
+	
+	\cventry{2013 -- 2018}{Research and Teaching Assistant, Theory of Computation Group}{Massachusetts Institute of Technology}{Cambridge, MA}{}{}
+	
+	\cventry{Summer 2015}{Research Intern, Scalable Machine Learning Group}{Yahoo Labs}{New York, NY}{}{}
+	%{Mentors: Justin Thaler, Maxim Srividenko, Edo Liberty \\ Worked on streaming matrix sampling problems and on algorithms for managing Yahoo's Fantasy Sports platform.}
+	
+	\section{Research Areas}\normalsize
+	theory of algorithms $\bullet$
+	randomized methods $\bullet$
+	numerical linear algebra   $\bullet$
+	sketching and  streaming  $\bullet$
+	foundations of data science  $\bullet$
+	network science  $\bullet$
+	machine learning $\bullet$ 
+	active learning and function approximation 
+%	$\bullet$  spectral graph algorithms 
+	
+	\section{Education}
+	\cventry{2013 -- 2018}{Ph.D. in Computer Science}{Massachusetts Institute of Technology}{Cambridge, MA}{}{\normalsize
+		%GPA: 5.00/5.00 \\  
+		\smallskip
+		Advisor: Jonathan Kelner\\
+		Ph.D. Thesis: {Faster Linear Algebra for Data Analysis and Machine Learning}\\
+		M.S. Thesis: {Dimensionality Reduction for Sparse and Structured Matrices}}  % arguments 3 to 6 can be left empty
+	\medskip
+	
+	\cventry{2008 -- 2012}{B.S. in Applied Mathematics, B.S. in Computer Science}{Yale University}{New Haven, CT}{}{\normalsize
+		%GPA: 3.85/4.00 overall, 3.95/4.00 in major\\
+		%Applied Mathematics Thesis: Fast Discrete Laplace Transforms (advised by Vladimir Rokhlin) \\ Computer Science Thesis: Graph Constructions for Machine Learning (advised by Daniel Spielman)
+	}
+	
+	\section{Publications}
+	\emph{Authors appear in alphabetical order, in the tradition of mathematics and theoretical computer science. Any exceptions are marked with a *, which indicates that authors are ordered by contribution.}\vspace{.5em}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2505.16932}{The Polar Express: Optimal Matrix Sign Methods and Their Application to the Muon Algorithm*}. Noah Amsel, David Persson, Christopher Musco, Robert Gower. \emph{International Conference on Learning Representations (ICLR)} 2026.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2601.18608}{PolySHAP: Extending KernelSHAP with Interaction-Informed Polynomial Regression*}. Fabian Fumagalli, R. Teal Witter, Christopher Musco. \emph{International Conference on Learning Representations (ICLR)} 2026.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/pdf/2510.16678}{An Exact Algorithm for the Unanimous Vote Problem}. Feyza Duman Keles, Lisa Hellerstein, Kunal Marwaha, Christopher Musco, Xinchen Yang. \emph{SIAM Symposium on Simplicity in Algorithms (SOSA)} 2026.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2508.06486}{Does block size matter in randomized block Krylov low-rank approximation?}. Tyler Chen, Ethan N. Epperly, Raphael A. Meyer, Christopher Musco, Akash Rao. \emph{ACM-SIAM Symposium on Discrete Algorithms (SODA)} 2026.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2507.13296}{Efficiently Constructing Sparse Navigable Graphs}. Alex Conway, Laxman Dhulipala, Martin Farach-Colton, Rob Johnson, Ben Landrum, Christopher Musco, Yarin Shechter, Torsten Suel, Richard Wen. \emph{ACM-SIAM Symposium on Discrete Algorithms (SODA)} 2026.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2505.16937}{Quasi-Optimal Hierarchically Semi-Separable Matrix Approximation}. Noah Amsel, Tyler Chen, Feyza Duman Keles, Diana Halikias, Cameron Musco, Christopher Musco, David Persson.\emph{SIAM Journal on Matrix Analysis and Applications (SIMAX)} 2026.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2402.09379}{Fixed-Sparsity Matrix Approximation from Matrix-Vector Products}. Noah Amsel, Tyler Chen, Diana Halikias, Feyza Duman Keles, Cameron Musco, Christopher Musco. \emph{SIAM Journal on Matrix Analysis and Applications (SIMAX)} 2026}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2505.15636}{Distance Adaptive Beam Search for Provably Accurate Graph-Based Nearest Neighbor Search}. Yousef Al-Jazzazi, Haya Diwan, Jinrui Gou, Cameron Musco, Christopher Musco, Torsten Suel. \emph{Conference on Neural Information Processing Systems (NeurIPS)} 2025.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2506.11849}{Regression-adjusted Monte Carlo Estimators for Shapley Values and Probabilistic Values*}. R. Teal Witter, Yurong Liu, Christopher Musco. \emph{Conference on Neural Information Processing Systems (NeurIPS)} 2025.}
+	
+	%\subsection{Conference and Journal Papers}
+	\cvitem{}{\colorhref{https://www.arxiv.org/pdf/2507.19290}{Query Efficient Structured Matrix Learning}. Noah Amsel, Pratyush Avi, Tyler Chen, Feyza Duman Keles, Chinmay Hegde, Cameron Musco, Christopher Musco, David Persson. Preprint 2025.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2408.12385}{Sharper Bounds for Chebyshev Moment Matching with Applications to Differential Privacy and Beyond}.  Cameron Musco, Christopher Musco, Lucas Rosenblatt, Apoorv Vikram Singh. \emph{Conference on Learning Theory (COLT)} 2025.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2408.07978}{Coupling without Communication and Drafter-Invariant Speculative Decoding}. Majid Daliri, Christopher Musco, Ananda Theertha Suresh. \emph{International Symposium on Information Theory (ISIT)} 2025.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2410.08336}{Kernel Banzhaf: A Fast and Robust Estimator for Banzhaf Values*}.  Yurong Liu, R. Teal Witter, Flip Korn, Tarfah Alrashed, Dimitris Paparas, Christopher Musco, Juliana Freire. Preprint 2025.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2502.01888}{Randomized Block-Krylov Subspace Methods for Low-rank Approximation of Matrix Functions*}.  David Persson, Tyler Chen, Christopher Musco. Preprint 2025.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2501.17836}{Matrix Product Sketching via Coordinated Sampling}. Majid Daliri, Juliana Freire, Danrong Li, Christopher Musco. \emph{International Conference on Learning Representations (ICLR)} 2025.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2410.01917}{Provably Accurate Shapley Value Estimation via Leverage Score Sampling}. Christopher Musco, R. Teal Witter. \emph{International Conference on Learning Representations (ICLR)} 2025. Selected as spotlight paper ($5.1\%$ of submissions).}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2410.21690}{Improved Spectral Density Estimation via Explicit and Implicit Deflation}. Rajarshi Bhattacharjee, Rajesh Jayaram, Cameron Musco, Christopher Musco, Archan Ray. \emph{ACM-SIAM Symposium on Discrete Algorithms (SODA)} 2025.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2407.046869}{Near-optimal Hierarchical Matrix  Approximation from Matrix-vector Products}. Tyler Chen, Diana Halikias, Feyza Duman Keles, Cameron Musco, Christopher Musco, David Persson. \emph{ACM-SIAM Symposium on Discrete Algorithms (SODA)} 2025.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2405.05865}{Faster Linear Systems and Matrix Norm Approximation via Multi-level Sketched Preconditioning}. Michał Dereziński, Christopher Musco, Jiaming Yang. \emph{ACM-SIAM Symposium on Discrete Algorithms (SODA)} 2025.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2311.14023}{Algorithm-agnostic low-rank approximation of operator monotone matrix functions*}. David Persson, Raphael A. Meyer, Christopher Musco. \emph{SIAM Journal on Matrix Analysis and Applications (SIMAX)} 2025.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2405.18680}{Navigable Graphs for High-Dimensional Nearest Neighbor Search: Constructions and Limits}. Haya Diwan, Jinrui Gou, Cameron Musco, Christopher Musco, Torsten Suel. \emph{Conference on Neural Information Processing Systems (NeurIPS)} 2024.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2303.03358}{Near-Optimality Guarantees for Approximating Rational Matrix Functions by the Lanczos Method}. Noah Amsel, Tyler Chen, Anne Greenbaum, Cameron Musco, Christopher Musco. \emph{Conference on Neural Information Processing Systems (NeurIPS)} 2024. Selected as spotlight paper ($2.1\%$ of submissions).}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2409.04500}{Benchmarking Estimators for Natural Experiments: A Novel Dataset and a Doubly Robust Algorithm*}.  R. Teal Witter, Christopher Musco. \emph{Conference on Neural Information Processing Systems (NeurIPS), Datasets and Benchmarks Track,} 2024.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2406.07521}{Faster Spectral Density Estimation and Sparsification in the Nuclear Norm.} Yujia Jin, Ishani Karmarkar, Christopher Musco, Aaron Sidford, Apoorv Vikram Singh.  \emph{Conference on Learning Theory (COLT)} 2024.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2405.09312}{Agnostic Active Learning of Single Index Models with Linear Sample Complexity*}. Aarshvi Gajjar, Wai Ming Tai, Xingyu Xu, Chinmay Hegde, Christopher Musco, Yi Li.  \emph{Conference on Learning Theory (COLT)} 2024.}
+
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2309.16157}{Sampling Methods for Inner Product Sketching }. Majid Daliri, Juliana Freire, Christopher Musco, Aécio Santos, Haoxiang Zhang.  \emph{Proceedings of the VLDB Endowment (VLDB). } 2024.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2310.04966}{Improved Active Learning via Dependent Leverage Score Sampling*}. Atsushi Shimizu, Xiaoou Cheng, Christopher Musco, Jonathan Weare. \emph{International Conference on Learning Representations (ICLR)} 2024. Invited for full oral presentation ($1.2\%$ of submissions).}
+
+	\cvitem{}{\colorhref{https://openreview.net/attachment?id=Ej4YjxAvcp&name=pdf}{Improved Bounds for Agnostic Active Learning of Single Index Models}. Aarshvi Gajjar, Xingyu Xu, Christopher Musco, Chinmay Hegde.
+	\emph{NeurIPS Workshop on Adaptive Experimental Design and Active Learning in the Real World} 2023.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2310.04966}{A Simple and Practical Method for Reducing the Disparate Impact of Differential Privacy*}. Lucas Rosenblatt, Julia Stoyanovich, Christopher Musco.
+	\emph{AAAI Conference on Artificial Intelligence (AAAI)} 2024.}
+
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2305.02535}{On the Unreasonable Effectiveness of Single Vector Krylov Methods for Low-Rank Approximation}. Raphael A. Meyer, Cameron Musco, Christopher Musco.  \emph{ACM-SIAM Symposium on Discrete Algorithms (SODA)} 2024.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/pdf/2308.05907.pdf}{Simple Anaysis of Priority Sampling}. Majid Daliri, Juliana Freire, Christopher Musco, Aécio Santos, Haoxiang Zhang. \emph{SIAM Symposium on Simplicity in Algorithms (SOSA)} 2024.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2008.01722}{Structured Semidefinite Programming for Recovering Structured Preconditioners}. Arun Jambulapati, Jerry Li, Christopher Musco, Aaron Sidford, Kevin Tian. \emph{Conference on Neural Information Processing Systems  (NeurIPS)} 2023.}
+
+	\cvitem{}{\colorhref{https://drops.dagstuhl.de/opus/frontdoor.php?source_opus=18756}{Efficient Block Approximate Matrix Multiplication*}. Chuhan Yang, Christopher Musco.  \emph{European Symposium on Algorithms (ESA)} 2023.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2307.00474}{Moments, Random Walks, and Limits for Spectrum Approximation}. Yujia Jin, Christopher Musco, Apoorv Singh, Aaron Sidford.  \emph{Conference on Learning Theory (COLT)} 2023.}
+
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2305.18755}{Dimensionality Reduction for General KDE Mode Finding}. Xinyu Luo, Christopher Musco, Cas Widdershoven. \emph{International Conference on Machine Learning (ICML)} 2023.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2301.05811}{Weighted Minwise Hashing Beats Linear Sketching for Inner Product Estimation}. Aline Bessa, Majid Daliri, Juliana Freire, Cameron Musco, Christopher Musco, Aécio Santos, Haoxiang Zhang.  \emph{ACM Symposium on Principles of Database Systems (PODS)} 2023.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2202.11251}{Low-memory Krylov Subspace Methods for Optimal Rational Matrix Function Approximation}. Tyler Chen, Anne Greenbaum, Cameron Musco, Christopher Musco.  \emph{SIAM Journal on Matrix Analysis and Applications (SIMAX)} 2023.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2210.13601}{Active Learning for Single Neuron Models with Lipschitz Non-Linearities}. Aarshvi Gajjar, Chinmay Hegde, Christopher Musco.  \emph{nternational Conference on Artificial Intelligence and Statistics (AISTATS)} 2023. Preliminary version at NeurIPS 2022 Workshop on The Symbiosis of Deep Learning and Differential Equations II (DLDE 2022).}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2211.06790}{Near-Linear Sample Complexity for Lp Polynomial Regression}. Raphael A. Meyer, Cameron Musco, Christopher Musco, David P. Woodruff, Samson Zhou. \emph{ACM-SIAM Symposium on Discrete Algorithms (SODA). } 2023.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/pdf/2208.03268.pdf}{A Tight Analysis of Hutchinson’s Diagonal Estimator}. Prathamesh Dharangutte, Christopher Musco.   \emph{SIAM Symposium on Simplicity in Algorithms (SOSA)} 2023.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2110.11981}{Active Linear Regression for $\ell_p$ Norms and Beyond}. Cameron Musco, Christopher Musco, David P. Woodruff, Taisuke Yasuda.  \emph{IEEE Symposium on Foundations of Computer Science (FOCS)} 2022.} 
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2111.04888}{How to Quantify Polarization in Models of Opinion Dynamics}. Christopher Musco, Indu Ramesh, Johan Ugander, R. Teal Witter. \emph{International Workshop on Mining and Learning with Graphs (at KDD)} 2022.}
+	
+	\cvitem{}{\colorhref{https://pubs.rsc.org/en/content/articlelanding/2022/re/d2re00005a/}{Chemically-informed data-driven optimization (ChIDDO): Leveraging physical models and Bayesian learning to accelerate chemical research*}. Daniel Frey, Juhee Shin, Christopher Musco, Miguel A. Modestino. \emph{Reaction Chemistry \& Engineering} 2022.}
+	
+	\cvitem{}{\colorhref{https://diglib.eg.org/handle/10.1111/cgf14542}{Streaming Approach to In Situ Selection of Key Time Steps for Time-Varying Volume Data*}. Mengxi Wu, Yi-Jen Chiang, Christopher Musco.  \emph{EuroVis} 2022.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2104.03461}{Sublinear Time Spectral Density Estimation}. Vladimir Braverman, Aditya Krishnan, Christopher Musco.   \emph{ACM Symposium on Theory of Computing (STOC)} 2022.}
+	
+	\cvitem{}{\colorhref{https://aeciosantos.com/static/pdfs/icde2022-qcr-index.pdf}{A Sketch-based Index for Correlated Dataset Search*}. A\'{e}cio Santos, Aline Bessa, Christopher Musco, Juliana Freire.  \emph{IEEE 38th International Conference on Data Engineering (ICDE)} 2022.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2203.07557}{Fast Regression for Structured Inputs}. Raphael A. Meyer, Cameron Musco, Christopher Musco, David P. Woodruff, Samson Zhou. \emph{International Conference on Learning Representations (ICLR)} 2022.}
+	
+	\cvitem{}{\colorhref{https://realworldml.github.io/files/cr/paper55.pdf}{Active Linear Regression in the Online Setting via Leverage Score Sampling}. Harvineet Singh, Christopher Musco, Rumi Chunara.  \emph{ICML Workshop on Adaptive Experimental Design and Active Learning in the Real World} 2022.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2106.09806}{Error Bounds for Lanczos-based Matrix Function Approximation}. Tyler Chen, Anne Greenbaum, Cameron Musco, Christopher Musco.  \emph{SIAM Journal on Matrix Analysis and Applications (SIMAX)} 2022.}
+	
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2110.13752}{Dynamic Trace Estimation}. Prathamesh Dharangutte, Christopher Musco.  \emph{Conference on Neural Information Processing Systems  (NeurIPS)} 2021.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/1912.07673}{Finding an Approximate Mode of a Kernel Density Estimate}. Jasper C.H. Lee, Jerry Li, Christopher Musco, Jeff M. Phillips, Wai Ming Tai. \emph{European Symposium on Algorithms (ESA)} 2021.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2104.03353}{Correlation Sketches for Approximate Join-Correlation Queries*}. A\'{e}cio Santos, Aline Bessa, Fernando Chirigati, Christopher Musco, Juliana Freire.  \emph{ACM Special Interest Group on Management of Data Conference (SIGMOD)} 2021.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2103.16084}{Public Transport Planning: When Transit Network Connectivity Meets Commuting Demand*}. Sheng Wang, Yuan Sun, Christopher Musco, Zhifeng Bao.  \emph{ACM Special Interest Group on Management of Data Conference (SIGMOD)} 2021.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/1904.09841}{Simple Heuristics Yield Provable Algorithms for Masked Low Rank Approximation}. Cameron Musco, Christopher Musco, David Woodruff.  \emph{Innovations in Theoretical Computer Science (ITCS)} 2021.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/pdf/2010.09649.pdf}{Hutch++: Optimal Stochastic Trace Estimation}. Raphael A. Meyer, Cameron Musco, Christopher Musco, David P. Woodruff. \emph{SIAM Symposium on Simplicity in Algorithms (SOSA)} 2021.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2006.12334}{Graph Learning for Inverse Landscape Genetics}. Prathamesh Dharangutte, Christopher Musco. \emph{AAAI Conference on Artificial Intelligence (AAAI) 2021.} Short version in NeurIPS 2020 AI for Earth Sciences workshop.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2006.07340}{Fourier Sparse Leverage Scores and Approximate Kernel Learning}. Tam\'{a}s Erd\'{e}lyi, Cameron Musco, Christopher Musco. \emph{Conference on Neural Information Processing Systems (NeurIPS)} 2020. Invited for spotlight presentation ($4\%$ of submissions).}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/1805.03765}{Near Optimal Linear Algebra in the Online and Sliding Window Models}. Vladimir Braverman, Petros Drineas, Cameron Musco, Christopher Musco, Jalaj Upadhyay, David P. Woodruff, Samson Zhou. \emph{IEEE Symposium on Foundations of Computer Science (FOCS)} 2020.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2006.08035}{The Statistical Cost of Robust Kernel Hyperparameter Tuning}. Raphael A. Meyer, Christopher Musco. \emph{Conference on Neural Information Processing Systems  (NeurIPS)} 2020.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/1911.08015}{Low-Rank Toeplitz Matrix Estimation via Random Ultra-Sparse Rulers}. Hannah Lawrence, Jerry Li, Cameron Musco, Christopher Musco. \emph{International Conference on Acoustics, Speech, and Signal Processing (ICASSP).} 2020.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/1905.05643}{Sample Efficient Toeplitz Covariance Estimation}. Yonina Eldar, Jerry Li, Cameron Musco, Christopher Musco. \emph{ACM-SIAM Symposium on Discrete Algorithms (SODA)} 2020.}
+	
+	\cvitem{}{\colorhref{https://epubs.siam.org/doi/10.1137/1.9781611975994.111}{Fast and Space Efficient Spectral Sparsification in Dynamic Streams}. Michael Kapralov, Aida Mousavifar, Cameron Musco, Christopher Musco, Navid Nouri, Aaron Sidford. \emph{ACM-SIAM Symposium on Discrete Algorithms (SODA)} 2020.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/1906.08772}{Analyzing the Impact of Filter Bubbles on Social Network Polarization}. Uthsav Chitra, Christopher Musco. \emph{ACM International Conference on Web Search and Data Mining (WSDM)} 2020. Preliminary version in KDD Workshop on Issues of Sentiment Discovery and Opinion Mining.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/2004.08434}{Projection-Cost-Preserving Sketches: Proof Strategies and Constructions }. Cameron Musco, Christopher Musco. \emph{Technical Report} 2020.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/1812.08723}{A Universal Sampling Method for Reconstructing Signals with Simple Fourier Transforms}. Haim Avron, Michael Kapralov, Cameron Musco, Christopher Musco, Ameya Velingker, Amir Zandieh.  \emph{ACM Symposium on Theory of Computing (STOC)} 2019.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/1801.07386}{Inferring Networks from Random Walk-based Node Similarities}. Jeremy Hoskins, Cameron Musco, Christopher Musco, Charalampos Tsourakakis.  \emph{Conference on Neural Information Processing Systems (NeurIPS)} 2018.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/1804.08548}{Eigenvector Computation and Community Detection in Asynchronous Gossip Models}. Frederik Mallmann-Trenn, Cameron Musco, Christopher Musco. \emph{International Colloquium on Automata, Languages, and Programming (ICALP)} 2018.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/1712.09948}{Minimizing Polarization and Disagreement in Social Networks}. Cameron Musco, Christopher Musco, Charalampos Tsourakakis. \emph{The Web Conference (WWW)} 2018.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/1708.07788}{Stability of the Lanczos Method for Matrix Function Approximation}. Cameron Musco, Christopher Musco, Aaron Sidford. \emph{ACM-SIAM Symposium on Discrete Algorithms (SODA)} 2018.}
+	
+	\cvitem{}{\colorhref{http://arxiv.org/abs/1605.07583}{Recursive Sampling for the Nystr{\"o}m Method}. Cameron Musco, Christopher Musco. \emph{Conference on Neural Information Processing Systems (NeurIPS)} 2017.}
+	
+	\cvitem{}{\colorhref{https://arxiv.org/abs/1804.09893}{Random Fourier Features for Kernel Ridge Regression: Approximation Bounds and Statistical Guarantees}. Haim Avron, Michael Kapralov, Cameron Musco, Christopher Musco, Ameya Velingker, Amir Zandieh. \emph{International Conference on Machine Learning (ICML)} 2017.}
+	
+	\cvitem{}{\colorhref{http://arxiv.org/abs/1511.07263}{ Input Sparsity Time Low-Rank Approximation via Ridge Leverage Score Sampling}. Michael B. Cohen, Cameron Musco, Christopher Musco. \emph{ACM-SIAM Symposium on Discrete Algorithms (SODA)} 2017.}
+	
+	\cvitem{}{\colorhref{http://arxiv.org/abs/1601.04203}{Determining Tournament Payout Structures for Daily Fantasy Sports}. Christopher Musco, Maxim Sviridenko, Justin Thaler. \emph{SIAM Algorithm Engineering and Experiments (ALENEX)} 2017.}
+	
+	\cvitem{}{\colorhref{http://arxiv.org/abs/1602.06872}{Principal Component Projection Without Principal Component Analysis}. Roy Frostig, Cameron Musco, Christopher Musco, Aaron Sidford. \emph{International Conference on Machine Learning (ICML)} 2016.}
+	
+	\cvitem{}{\colorhref{http://arxiv.org/abs/1504.05477}{Randomized Block Krylov Methods for Stronger and Faster Approximate Singular Value Decomposition}. Cameron Musco, Christopher Musco. \emph{Conference on Neural Information Processing Systems  (NeurIPS)} 2015. Invited for full oral presentation (1 of 15, $<1\%$ of submissions). Also presented at the 2016 Copper Mountain Conference on Iterative Methods.}
+	
+	\cvitem{}{ \colorhref{http://arxiv.org/abs/1410.6801}{Dimensionality Reduction for K-Means Clustering and Low Rank Approximation}. Michael B. Cohen, Samuel Elder, Cameron Musco, Christopher Musco, Madalina Persu. \emph{ACM Symposium on Theory of Computing (STOC)} 2015.}
+	
+	\cvitem{}{{\colorhref{https://www.ndss-symposium.org/ndss2015/ndss-2015-programme/principled-sampling-anomaly-detection/}{Principled Sampling for Anomaly Detection}. Brendan Juba, Fan Long, Christopher Musco, Stelios Sidiroglou-Douskos, Martin Rinard.} \emph{Network and Distributed System Security Symposium (NDSS)}. 2015.} 
+	
+	\cvitem{}{\colorhref{http://arxiv.org/abs/1408.5099}{Uniform Sampling for Matrix Approximation}. Michael B. Cohen, Yin Tat Lee, Cameron Musco, Christopher Musco, Richard Peng, Aaron Sidford. \emph{Innovations in Theoretical Computer Science (ITCS)} 2015.}
+	
+	\cvitem{}{\colorhref{http://arxiv.org/abs/1407.1289}{Single Pass Spectral Sparsification in Dynamic Streams}. Michael Kapralov, Yin Tat Lee, Cameron Musco, Christopher Musco, Aaron Sidford. \emph{IEEE Symposium on Foundations of Computer Science (FOCS)} 2014, Special Issue SIAM Journal on Computing 2017.}
+	%\subsection{Journal Articles}nor
+	%\subsection{Other}
+	
+	\section{Funding}
+	\cventry{2024 - 2027}{The Query Complexity of Linear Algebra.}{NSF AF Small}{}{}{PI (w/ Cameron Musco, UMass), \$600,000}
+
+	\cventry{2021 - 2026}{Frontiers in Matrix Sketching.}{NSF CAREER Award}{}{}{PI, \$562,224}
+	
+	\cventry{2021 - 2024}{Dataset Search and Ranking for Data Augmentation and Explanation.}{NSF III Medium}{}{}{Co-PI (w/ Juliana Freire, NYU), \$1,093,195}
+	
+	\cventry{2021 - 2023}{Leverage Score Sampling for Parametric PDEs.}{DOE Office of Science Grant}{}{}{PI (w/ Chinmay Hegde, NYU), \$300,000}
+	
+	\cventry{2021-2022}{CIFellow Fellow Award for Dr. Aline Bessa.}{NSF/CRA}{}{}{PI, \$263,250}
+	
+	\section{Current Graduate Student and Postdoc Advising}
+	\cvitemwithcomment{}{Pratyush Avi. Ph.D., New York University.}{\normalsize 2024 - present}
+	\cvitemwithcomment{}{Noah Amsel. Ph.D., New York University  (with Prof. Joan Bruna).}{\normalsize 2022 - present}
+	\cvitemwithcomment{}{Majid Daliri. Ph.D., New York University.}{\normalsize 2022 - present}
+	\cvitemwithcomment{}{Feyza Duman Keles. Ph.D., New York University (with Prof. Chinmay Hedge).}{\normalsize 2023 - present}
+	\cvitemwithcomment{}{Apoorv Singh. Ph.D., New York University.}{\normalsize 2020 - present}
+	\vspace{1em}
+
+
+	
+	\section{Past Advising}
+	\cventrynospace{}{}{Ph.D. Students and Postdocs}{}{}{}
+	\cvitemwithcomment{}{Aarsvhi Gajjar. Ph.D., New York University.}{\normalsize 2021 - 2025}
+	\cvitemwithcomment{}{Teal Witter. Ph.D., New York University.}{\normalsize 2020 - 2025}
+	\cvitemwithcomment{}{Tyler Chen. Postdoc, New York University.}{\normalsize 2022 - 2024}
+	\cvitemwithcomment{}{Raphael A. Meyer. Ph.D., New York University.}{\normalsize 2019 - 2024}
+	\cvitemwithcomment{}{Chuhan Yang. Ph.D., New York University.}{\normalsize 2020 - 2024}
+	\cvitemwithcomment{}{David Persson. Visiting Ph.D. student.}{\normalsize 2023}
+	\cvitemwithcomment{}{Aline Bessa. Postdoc, New York University.}{\normalsize 2021}
+
+
+	\cventrynospace{}{}{Master's Students}{}{}{}
+	\cvitemwithcomment{}{Akash Rao, M.S., New York University.}{\normalsize 2023 - 2024}
+	\cvitemwithcomment{}{Siddharth Sagar. M.S., New York University.}{\normalsize 2023}
+	\cvitemwithcomment{}{Yajur Ahuja. M.S., New York University.}{\normalsize 2023}
+	\cvitemwithcomment{}{Sundeep Chenreddy. M.S., New York University.}{\normalsize 2023}
+	\cvitemwithcomment{}{Atsushu Shimuzu. M.S., New York University.}{\normalsize 2022 - 2023}
+	\cvitemwithcomment{}{Danrong Li. M.S., New York University.}{\normalsize 2022 - 2023}
+	\cvitemwithcomment{}{Indu Ramesh. M.S., New York University.}{\normalsize 2020 - 2022}
+	\cvitemwithcomment{}{Mengxi Wu. M.S., New York University.}{\normalsize 2020 - 2022}
+	\cvitemwithcomment{}{Xinyu Luo. M.S., New York University.}{\normalsize 2020 - 2022}
+	\cvitemwithcomment{}{Prathamesh Dharangutte. M.S., New York University.}{\normalsize 2019 - 2021}
+	\cvitemwithcomment{}{John Shin. M.S., New York University.}{\normalsize 2019 - 2020}
+	\vspace{1em}
+	I have advised over a dozen undergraduate guided studies and research projects, as well as several research projects involving high school students.
+	
+	\section{Ph.D. Thesis Committees}
+	\cvitemwithcomment{}{Lucas Rosenblatt, NYU}{}
+	\cvitemwithcomment{}{Xiaoou Cheng, NYU}{}
+	\cvitemwithcomment{}{Sivan Ding, NYU}{}
+	\cvitemwithcomment{}{Oğuzhan Kubilay Ülger, NYU}{Defended 2025}
+	\cvitemwithcomment{}{Hanna Komlós, NYU}{\normalsize Defended 2025}
+	\cvitemwithcomment{}{Bruno Coelho, NYU}{\normalsize Defended 2025}
+	\cvitemwithcomment{}{Haoxiang Zhang, NYU}{\normalsize Defended 2024}
+	\cvitemwithcomment{}{Aécio Santos, NYU}{\normalsize Defended 2024}
+	\cvitemwithcomment{}{Ishan Agarwal, NYU}{\normalsize Defended 2023}
+	\cvitemwithcomment{}{Yiming Zhang , NYU}{\normalsize Defended 2022}
+	\cvitemwithcomment{}{Francis Williams, NYU}{\normalsize Defended 2021}
+	
+	\section{Teaching}
+	\cventry{Fall 2019-2023, Spring 2025-2026}{Course Instructor}{Algorithmic Machine Learning and Data Science (NYU CS-GY 6763)}{}{}{}
+	\cventry{Spring 2025}{Co-Instructor}{Recent Developments in Algorithm Design (NYU CSCI-GA 3033/CS-GY 9223)}{}{}{}
+	\cventry{Spring 2022, 2023, Fall 2024}{Course Instructor}{Machine Learning, Graduate (NYU CS-GY 6923)}{}{}{}
+	\cventry{Spring 2020}{Course Instructor}{Introduction to Machine Learning (NYU CS-UY 4563)}{}{}{}
+	\cventry{Fall 2018}{Course Instructor}{Advanced Algorithm Design (Princeton COS 521)}{}{}{}
+	%{Held office hours, wrote problem sets, and compiled notes and resources for an updated version of this challenging graduate algorithms course. Wrote guide on topics and expectations for student projects. Prepared and delivered a lecture on linear programming relaxations. %Teaching score in student end-of-term reviews: 6.5/7.}
+	\cventry{Spring 2016}{Teaching Assistant}{Advanced Algorithms (MIT 6.854/18.415)}{}{}{}
+	%{Held office hours, wrote problem sets, and compiled notes and resources for an updated version of this challenging graduate algorithms course. Wrote guide on topics and expectations for student projects. Prepared and delivered a lecture on linear programming relaxations. %Teaching score in student end-of-term reviews: 6.5/7.}
+	\cventry{Spring 2016}{Workshop Leader}{Technical Communication Skills for Graduate Students (MIT 6.S977)}{}{}{}
+	%{Lead weekly workshops that supplemented lecture material with hands-on writing and presentation exercises. Met with students one-on-one outside of class to offer individual support  and coaching in technical communcation.}
+	%\cventry{Spring 2012}{Teaching Assistant}{Introduction to Computer Science (Yale CPSC-201)}{}{}{}
+	%{Held weekly office hours and provided support for students online, covering boolean boolean logic, functional programming,  formal language theory, and basic complexity theory.}
+	%\cventry{Fall 2011}{Teaching Assistant}{Introduction to Programming (Yale CPSC-112)}{}{}{}
+	%{Led weekly section for 15-25 students covering basic Java programming. Tutored 6 students individually.}
+	
+	%\cventry{2009 -- 2010}{Grader}{Introductory Calculus (Yale MATH-112 \& MATH-115)}{}{}{Scored problem sets and provided explanations and solutions for students, as well as feedback to the professor.}
+	
+	%\section{Student Advising}
+	%\subsection{Undergraduate}
+	%\cvitemwithcomment{}{Tristan Pollner, Junior Project (Princeton)}{\normalsize 2019}
+	
+	
+	\section{Mentorship and Outreach}
+	
+	\cventry{2018 - present}{Problem Development Committee, Director of Technical Computing Judging}{SIAM/MathWorks Math Modeling Challenge}{}{}{Support SIAM's annual math modeling competition, which gives high school students an opportunity to apply mathematics, statistics, and data science to a real-world problem. Serve on committee in charge of writing practice and contest problems. Lead judging and award presentation for student Technical Computing prizes. 
+	}
+	
+	\cventry{2015 - 2018}{Communication Adviser}{MIT Graduate Communication Lab}{}{}{Helped to establish an EECS Communication Lab to provide over 700 graduate students with support in academic writing, oral presentation, job applications, and generally, in communicating effectively.  Offered feedback, guidance, and coaching to individual students during weekly office hours. 
+		%(100+ individual appointments).
+	}
+	
+	
+%	\cventry{2016 - 2018}{Member}{CSAIL Algorithms Office Hours}{}{}{
+%		Advised  researchers, generally in applied fields, on framing and solving algorithmic problems arising in their work. 
+%	}
+	
+	%\cventry{2016 - present}{Mentor}{MIT Office of Minority Education, Laureates and Leaders Program}{}{}{
+		%Work one-on-one with students from underrepresented groups who are interested in STEM research and ultimately, applying to graduate school. Provide guidance and support in finding on-campus opportunities, selecting internships, connecting with researchers, and preparing applications. 
+		%}
+	%\medskip
+	
+	% \cventry{2014}{Summer Research Adviser}{Research Science Institute at MIT}{}{}{Primary supervisor for a high school student participating in the prestigious RSI summer research program. %
+	% 	Advisee's project, ``Relaxation of a Concurrent Disjoint-Set'', was selected as one of 10 program finalists.}
+	
+\section{Invited Talks}
+\cventrynospace{}{}{Understanding Graph-based Methods for Vector Search}{}{}{}
+\cvitemwithcomment{}{CUNY Graduate Center, Holiday Lecture}{\normalsize Dec. 2025}
+
+\cventrynospace{}{}{Randomized Numerical Linear Algebra: Highlights and Future Directions}{}{}{}
+\cvitemwithcomment{}{Institute for Computational and Experimental Research in Mathematics, Brown University}{\normalsize Jan. 2026}
+\cvitemwithcomment{}{Simons Institute at Berkeley}{\normalsize Nov. 2025}
+
+\cventrynospace{}{}{Navigability and Graph-based Vector Search}{}{}{}
+\cvitemwithcomment{}{Northwestern University, IDEAL Workshop}{\normalsize Nov. 2025}
+
+\cventrynospace{}{}{Solving Linear Systems: Recent Developements and Open Questions}{}{}{}
+\cvitemwithcomment{}{Simons Institute at Berkeley}{\normalsize Sept. 2025}
+
+\cventrynospace{}{}{Beam Search, Navigable Graphs, and Nearest Neighbor Search}{}{}{}
+\cvitemwithcomment{}{Microsoft Research}{\normalsize July 2025}
+
+
+\cventrynospace{}{}{Mathematically Modeling Anything and Everything in Python}{}{}{}
+\cvitemwithcomment{}{Mu Alpha Theta National Convention}{\normalsize July 2025}
+
+\cventrynospace{}{}{Structured Matrix Approximation from Matrix-Vector Products}{}{}{}
+\cvitemwithcomment{}{Rensselaer Polytechnic Institute}{\normalsize Oct. 2024}
+% \cventrynospace{}{}{Sampling Methods for Inner Product Sketching}{}{}{}
+% \cvitemwithcomment{}{Wuhan University}{\normalsize Aug. 2024}
+
+\cventrynospace{}{}{The Lanczos Method, Matrix Functions, and the Quest for Optimality}{}{}{}
+\cvitemwithcomment{}{Johns Hopkins, Applied Math Seminar}{\normalsize Feb. 2024}
+
+\cventrynospace{}{}{Tutorial on Randomized Numerical Linear Algebra (invited panelist)}{}{}{}
+\cvitemwithcomment{}{Neural Information Processing Systems (NeurIPS)}{\normalsize Dec. 2023}
+
+\cventrynospace{}{}{On the Effectiveness of Single Vector Krylov Methods for Low-rank Approximation}{}{}{}
+\cvitemwithcomment{}{Foundations of Computational Mathematics (FoCM)}{\normalsize June 2023}
+\cvitemwithcomment{}{SIAM Conference on Applied Linear Algebra}{\normalsize May 2024}
+
+\cventrynospace{}{}{Tutorial on Matrix Sketching}{}{}{}
+\cvitemwithcomment{}{BIRS Workshop on Perspectives on Matrix Computations}{\normalsize Mar. 2023}
+
+\cventrynospace{}{}{Integrating Education and Research in Early Career Funding Proposals}{}{}{}
+\cvitemwithcomment{}{Joint Mathematics Meetings, SIAM Special Session on Education}{\normalsize Jan. 2023}
+
+\cventrynospace{}{}{Robust Active Learning via Leverage Score Sampling}{}{}{}
+\cvitemwithcomment{}{Canadian Mathematics Society, Winter Meeting}{\normalsize Dec. 2022}
+\cvitemwithcomment{}{One World Mathematics of Information, Data, and Signals (1W-MINDS) Seminar}{\normalsize Oct. 2023}
+
+
+\cventrynospace{}{}{Iterative Sampling Methods for Matrix Approximation}{}{}{}
+\cvitemwithcomment{}{University of Michigan, Randomized Numerical Linear Algebra Seminar}{\normalsize Oct. 2022}
+
+\cventrynospace{}{}{Noisy Implicit Methods for Matrix Functions}{}{}{}
+\cvitemwithcomment{}{SIAM Annual Meeting}{\normalsize July 2022}
+
+\cventrynospace{}{}{Sublinear Time Spectral Density Estimation}{}{}{}
+\cvitemwithcomment{}{Queens College CUNY Computer Science Colloquium}{\normalsize Mar. 2023}
+\cvitemwithcomment{}{National University of Singapore, Workshop on Algorithms and Foundations for Data Science}{\normalsize June 2022}
+\cvitemwithcomment{}{Oxford University, Computational Mathematics and Applications Seminar}{\normalsize Feb. 2022}
+\cvitemwithcomment{}{University of British Columbia, Applied Math Seminar}{\normalsize Jan. 2022}
+\cvitemwithcomment{}{Workshop on Algorithms for Large Data }{\normalsize Aug. 2021}
+\cvitemwithcomment{}{Cornell University,  Scientific Computing and Numerics Seminar}{\normalsize Mar. 2021}
+
+\cventrynospace{}{}{Optimal Stochastic Trace Estimation}{}{}{}
+\cvitemwithcomment{}{New York University, Numerical Analysis and Scientific Computing Seminar}{\normalsize Apr. 2022}
+\cvitemwithcomment{}{University of Michigan, Randomized Numerical Linear Algebra Seminar}{\normalsize Nov. 2021}
+\cvitemwithcomment{}{Stanford University, Operations Research Seminar}{\normalsize Oct. 2020}
+
+\cventrynospace{}{}{A TCS Perspective on Iterative Eigensolvers}{}{}{}
+\cvitemwithcomment{}{Complexity of Matrix Computations Seminar}{\normalsize Oct. 2021}
+
+\cventrynospace{}{}{Mathematical Modeling and Coding in the Classroom}{}{}{}
+\cvitemwithcomment{}{Mu Alpha Theta National Convention}{\normalsize July 2021}
+
+\cventrynospace{}{}{Randomized Algorithms for Probing the Spectrum of a Matrix}{}{}{}
+\cvitemwithcomment{}{George Mason University,  AI Tea Series}{\normalsize Apr. 2021}
+
+\cventrynospace{}{}{Importance Sampling for Approximating High-Dimensional Kernel Matrices}{}{}{}
+\cvitemwithcomment{}{Emory University, Numerical Analysis and Scientific Computing Seminar}{\normalsize Feb. 2021}
+
+
+
+%\cventrynospace{}{}{Introduction to Machine Learning}{}{}{}
+%\cvitemwithcomment{}{New York University, guest lecture in ``Introduction to Computer Science''}{\normalsize Mar. 2020}
+
+\cventrynospace{}{}{Structured Covariance Estimation}{}{}{}
+\cvitemwithcomment{}{Oxford Statistics and Machine Learning in Finance Seminar}{\normalsize June 2022}
+\cvitemwithcomment{}{Yahoo! Research, Seminar}{\normalsize Apr. 2020}
+\cvitemwithcomment{}{Johns Hopkins University, Theory Seminar}{\normalsize Oct. 2019}
+%	\cvitemwithcomment{}{Symposium on Discrete Algorithms (SODA)}{\normalsize Jan. 2020}
+
+\cventrynospace{}{}{From Randomized Linear Algebra to Randomized Functional Analysis}{}{}{}
+\cvitemwithcomment{}{SIAM Mathematics of Data Science Conference}{\normalsize May 2020}
+\cvitemwithcomment{}{University of Utah, Data Science Seminar}{\normalsize Jan. 2020}
+\cvitemwithcomment{}{Rutgers University, DIMACS RandNLA Workshop}{\normalsize Sept. 2019}
+
+\cventrynospace{}{}{Learning Signals with Simple Fourier Transforms}{}{}{}
+%	\cvitemwithcomment{}{Symposium on Theory of Computing (STOC)}{\normalsize June 2019}
+\cvitemwithcomment{}{Columbia University, Theory Seminar}{\normalsize Oct. 2018}
+\cvitemwithcomment{}{UC Berkeley, Simons Institute Workshop}{\normalsize Sept. 2018}
+\cvitemwithcomment{}{Princeton University, Theory Seminar}{\normalsize Sept. 2018}
+
+\cventrynospace{}{}{The Lanczos Method in Data Science: Challenges and Opportunities}{}{}{}
+\cvitemwithcomment{}{SIAM Conference on Parallel Processing for Scientific Computing, Minisymposium}{\normalsize Feb. 2020}
+\cvitemwithcomment{}{Georgetown University, CS Seminar}{\normalsize Feb. 2018}
+%	\cvitemwithcomment{}{Symposium on Discrete Algorithms (SODA)}{\normalsize Jan. 2018}
+
+\cventrynospace{}{}{Unifying Random Features and Leverage Scores for Kernel Matrix Approximation}{}{}{}
+\cvitemwithcomment{}{Institute for Advanced Study, Computer Science and Discrete Mathematics Seminar}{\normalsize Feb. 2018}
+\cvitemwithcomment{}{Harvard University, guest lecture in ``Sketching Algorithms for Big Data''}{\normalsize Nov. 2017}
+\cvitemwithcomment{}{Microsoft Research, Redmond, Research Seminar}{\normalsize Sept. 2017}
+
+\cventrynospace{}{}{Sketching and Sampling Methods for Large Scale Linear Algebra}{}{}{}
+\cvitemwithcomment{}{Twitter, Cambridge, Research Seminar}{\normalsize July 2017}
+
+\cventrynospace{}{}{Recursive Sampling for the Nystr{\"o}m Method}{}{}{}
+%	\cvitemwithcomment{}{Neural Information Processing Systems (NeurIPS) poster session}{\normalsize Dec. 2017}
+\cvitemwithcomment{}{New England Machine Learning Day}{\normalsize May 2017}
+
+
+%	\cventrynospace{}{}{Algorithms for Determining Tournament Payout Structures}{}{}{}
+%	\cvitemwithcomment{}{Meeting on Algorithm Engineering and Experiments (ALENEX)}{\normalsize Jan. 2017}
+
+\cventrynospace{}{}{Introduction to Linear Sketching}{}{}{}
+\cvitemwithcomment{}{MIT, Theory Retreat}{\normalsize Sept. 2016}
+
+%	\cventrynospace{}{}{Principal Component Projection without Principal Component Analysis}{}{}{}
+%	\cvitemwithcomment{}{International Conference on Machine Learning (ICML)}{\normalsize June 2016}
+
+\cventrynospace{}{}{Ridge Leverage Score Sampling}{}{}{}
+\cvitemwithcomment{}{National Institute of Informatics, Shonan Meeting}{\normalsize July 2016}
+\cvitemwithcomment{}{MIT, Algorithms \& Complexity Seminar}{\normalsize July 2016}
+\cvitemwithcomment{}{University of Utah, Data Group Meeting}{\normalsize Jan. 2016}
+
+%	\cventrynospace{}{}{Randomized Block Krylov Methods}{}{}{}
+%	\cvitemwithcomment{}{Neural Information Processing Systems (NeurIPS) poster session}{\normalsize Dec. 2015}
+
+\cventrynospace{}{}{Large Scale Column Subset Selection}{}{}{}
+\cvitemwithcomment{}{Yahoo Labs, Science Week}{\normalsize July 2015}
+
+\cventrynospace{}{}{Dimensionality Reduction for k-Means Clustering}{}{}{}
+\cvitemwithcomment{}{IBM T.J. Watson, Mathematical Sciences Research Seminar}{\normalsize Aug. 2015}
+%	\cvitemwithcomment{}{Symposium on Theory of Computing (STOC)}{\normalsize June 2015}
+\cvitemwithcomment{}{MIT, Theory Lunch}{\normalsize June 2014}
+
+%	\cventrynospace{}{}{Principled Sampling for Anomaly Detection}{}{}{}
+%	\cvitemwithcomment{}{MIT, Defense Advanced Research Projects Agency site visit}{\normalsize Mar. 2015}
+%	\cvitemwithcomment{}{Network and Distributed System Security Symposium (NDSS)}{\normalsize Feb. 2015}
+%	
+\cventrynospace{}{}{Uniform Sampling for Matrix Approximation}{}{}{}
+\cvitemwithcomment{}{Yahoo Labs, Scalable Machine Learning Research Seminar}{\normalsize June 2015}
+
+\cventrynospace{}{}{Single Pass Spectral Sparsification in Dynamic Streams}{}{}{}
+\cvitemwithcomment{}{MIT, Annual Sublinear Algorithms Day}{\normalsize Apr. 2015}
+\cvitemwithcomment{}{Harvard University, Theory Seminar}{\normalsize Nov. 2014}
+%	\cvitemwithcomment{}{Foundations of Computer Science (FOCS)}{\normalsize Oct. 2014}
+
+	
+	\section{Service}
+	
+	\subsection{Organization}
+	\cvitemwithcomment{}{NYU Theoretical Computer Science Seminar}{\normalsize 2022 - present}
+	\cvitemwithcomment{}{Simons Institute at Berkeley Workshop Organizer}{\normalsize 2025}
+	\cvitemwithcomment{}{NYU Computer Science Theory ``Pandemic Presentations'' Workshop}{\normalsize 2022}
+	\cvitemwithcomment{}{SIAM Annual Meeting Minisymposium Organizer}{\normalsize 2021}
+	\cvitemwithcomment{}{SIAM Mathematics of Data Science Minisymposium Organizer}{\normalsize 2020, 2024}
+	%\cvitemwithcomment{}{NYU Tandon Algorithmic Data Science Reading Group}{\normalsize 2019 - present}
+	
+	\subsection{Department Service}
+	\cvitemwithcomment{}{Faculty Search Committee}{\normalsize 2019, 2021-2025}
+	\cvitemwithcomment{}{Chair, Ph.D. Admissions Committee}{\normalsize 2021 - 2023}
+	\cvitemwithcomment{}{Department Chair Search Committee}{\normalsize 2021 - 2023}
+	\cvitemwithcomment{}{Online Faculty Oversight Committee}{\normalsize 2021 - 2023}
+
+	\subsection{Conference Programming}
+	\cvitemwithcomment{}{SODA Program Committee Member}{\normalsize 2026}
+	\cvitemwithcomment{}{FOCS Program Committee Member}{\normalsize 2025, 2022}
+	\cvitemwithcomment{}{STOC Program Committee Member}{\normalsize 2023}
+	\cvitemwithcomment{}{ESA Program Committee Member}{\normalsize 2026, 2024}
+	\cvitemwithcomment{}{SOSA Program Committee Member}{\normalsize 2025}
+	\cvitemwithcomment{}{NeurIPS Area Chair}{\normalsize 2019, 2021-2024}
+	\cvitemwithcomment{}{ICLR Area Chair}{\normalsize 2024-2025}
+	\cvitemwithcomment{}{ICML Area Chair}{\normalsize 2023}
+	\cvitemwithcomment{}{AAAI Senior Area Chair}{\normalsize 2022}
+	
+	\subsection{Journal Editing}
+	\cvitemwithcomment{}{Editor, SICOMP Special Issue for STOC}{\normalsize 2023}
+	
+	
+	\subsection{Conference Reviewing}
+	STOC, FOCS, SODA, ICALP, SoCG, ITCS, ICML, NeurIPS, COLT, AAAI, AISTATS, SOCG, ESA, APPROX, RANDOM, STACS, IWOCA, WALCOM, NDSS
+	
+	\subsection{Journal Reviewing}
+	Journal of the ACM, SIAM Journal on Computing, Communications on Pure and Applied Mathematics, SIAM Journal on Matrix Analysis and Applications, SIAM Journal on Scientific Computing, ACM Transactions on Algorithms, Theoretical Computer Science, Journal of Machine Learning Research,  Linear Algebra and Its Applications, SIAM Journal on Mathematics of Data Science, Science Advances, Mathematical Programming, IEEE Transactions on Signal Processing, IEEE Transactions on Knowledge and Data Engineering, International Journal of Foundations of Computer Science, IEEE Journal on Selected Areas in Information Theory, BIT Numerical Mathematics, AMS Notices
+	
+	\subsection{Grants Panels}
+	\cvitemwithcomment{}{National Science Foundation Panel}{\normalsize 2019, 2022}
+	\cvitemwithcomment{}{NSF Graduate Research Fellowship Reviewer}{\normalsize 2022}
+	\cvitemwithcomment{}{Department of Energy External Reviewer}{\normalsize 2022, 2023}
+	
+	% \subsection{Notables}
+	% ICML 2018 Outstanding Reviewer, ICML Expert Review 2021
+	
+	
+	
+	\section{Invited Workshops and Events}
+	\cventry{2023}{Invited participant}{Banff International Research Station (BIRS)}{}{}{
+		Workshop on Perspectives on Matrix Computations: Theoretical Computer Science Meets Numerical Analysis.}
+	\cventry{2019}{Invited participant}{Rutgers, DIMACS}{}{}{
+		Workshop on Randomized Numerical Linear Algebra, Statistics, and Optimization.}
+	\cventry{2018}{Invited participant}{UC Berkeley, Simons Institute for the Theory of Computing}{}{}{
+		Workshop on Randomized Numerical Linear Algebra and Applications.}
+	\cventry{2016}{Invited participant}{Japan National Institute of Informatics}{}{}{
+		Shonan meeting on Recent Advances in Randomized Numerical Linear Algebra.}
+	
+	
+	
+	
+	\section{Honors and Awards}
+	\cventrynocity{2023}{Junior Faculty Research Award}{NYU Tandon}{}{}{} 
+	\cventrynocity{2023}{Goddard Junior Faculty Fellowship Award}{NYU Tandon}{}{}{} 
+	\cventrynocity{2022}{Nominated for Jacobs Excellence in Education Innovation Award}{NYU Tandon}{}{}{} 
+	\cventrynocity{2014-2017}{Graduate Research Fellowship, recipient}{National Science Foundation}{}{}{} 
+	%\cventrynocity{2017}{Ph.D. Fellowship, finalist (40/800 applicants)}{Facebook Research}{}{}{} 
+	\cventrynocity{2012}{Cum Laude, Distinction in Both Majors}{Yale University}{}{}{} 
+	
+	\newif\ifnonacademic
+	\nonacademicfalse
+	
+	%\section{Grants and Funding}
+	%
+	%\subsection{Travel Awards}
+	%SIAM Early Career 2019, NeurIPS 2018, NeurIPS 2015
+	
+	\section{Other Professional Experience}
+	\cventry{2012 -- 2014}{Software Engineer, Data Team}{Redfin}{Seattle, WA}{}{
+		%	Developed backend Java infrastructure for internet-powered real estate startup. Incorporated large-scale machine learning algorithms into production code. Managed three interns and onboarded four new-hires.
+		\ifnonacademic
+		\begin{itemize}
+			\item Designed systems to import and manage data on home listings, public records, and customer behavior.
+			\item Incorporated large-scale machine learning algorithms into production code base for real-time application.
+			\item Mentored and organized projects for 3 summer interns in addition to helping onboard 3 full-time hires.
+			\item Technology stack included Spring MVC, Hibernate, PostgreSQL, DynamoDB, and Amazon S3.
+		\end{itemize}
+		\fi
+	}
+	
+	\cventry{2011}{Summer Consultant}{Elysium Digital}{Cambridge, MA}{}{
+		%	Provided technical expertise in software patent cases at leading litigation consulting company. 
+		%Spearheaded R\&D projects involving natural language processing for patents and optical character recognition.
+		\ifnonacademic
+		\begin{itemize}%
+			\item Evaluated patents, searched for prior art, and worked with expert witnesses to prepare trial reports.
+			\item Analyzed source code to aid intellectual property attorneys in developing non-infringement arguments.
+			\item Spearheaded research and development projects involving natural language processing for patents, optical character recognition software, and internal web applications.
+		\end{itemize}
+		\fi
+	}
+	\ifnonacademic
+	\pagebreak
+	\fi
+	\cventry{2010 -- 2011}{Software Developer}{Amicus}{New Haven, CT}{}{
+		%	Built applications for political campaign management and social fundraising at an early-stage startup that went on to raise 4 million dollars in seed funding.
+		%Contributed to front end design as well as data mining projects, including geographic clustering algorithms.
+		\ifnonacademic
+		\begin{itemize}%
+			\item Contributed to front end design as well as data mining projects, including geographic clustering algorithms.
+			\item Gained invaluable entrepreneurial and leadership experience as an original member on a small core team.
+		\end{itemize}
+		\fi
+	}
+	
+	%\cventry{Summer 2009}{Intern, Asset Finance Group}{Moody's Investors Service}{New York, NY}{}{Established and monitored bond ratings on securitizations in three asset classes. Wrote code to automate analysis for student loan data and to compile records on aircraft leases.
+		%\ifnonacademic
+		%\begin{itemize}%
+		%	\item Wrote code to automate analysis for student loan data and to compile records on aircraft leases.
+		%	\item Gained insight into ratings processes for structured deals, corporate bonds, and municipal bonds.
+		%\end{itemize}
+		%\fi
+		%}
+	%%\medskip
+	%
+	%\cventry{Summer 2007}{Intern, Natural Resources Conservation Service}{U.S. Department of Agriculture}{East Greenwich, RI}{}{Collected and analyzed data for two major state conservation and research projects. 
+		%Integrated mapping software and database tools to develop a system for compiling and presenting soil data.
+		%\ifnonacademic
+		%\begin{itemize}%
+		%	\item Integrated mapping software and database tools to develop a system for compiling and presenting soil data.
+		%	\item Collaborated with a small team to study the proliferation of invasive Purple Loosestrife in local watersheds.
+		%	\item Other projects involved animal trapping, soil probing, water testing, and ground-penetrating radar surveys.
+		%\end{itemize}
+		%\fi
+		%}
+	
+	%\section{References}
+	%\cvitem{}{Available upon request.}
+	
+	
+	%\section{Languages}
+	%\cvitemwithcomment{Language 1}{Skill level}{Comment}
+	%\cvitemwithcomment{Language 2}{Skill level}{Comment}
+	%\cvitemwithcomment{Language 3}{Skill level}{Comment}
+	%
+	%\section{Computer skills}
+	%\cvdoubleitem{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
+	%\cvdoubleitem{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
+	%\cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
+	%
+	%\section{Interests}
+	%\cvitem{hobby 1}{Description}
+	%\cvitem{hobby 2}{Description}
+	%\cvitem{hobby 3}{Description}
+	%
+	%\section{Extra 1}
+	%\cvlistitem{Item 1}
+	%\cvlistitem{Item 2}
+	%\cvlistitem{Item 3. This item is particularly long and therefore normally spans over several lines. Did you notice the indentation when the line wraps?}
+	
+	%\section{References}
+	%\begin{cvcolumns}
+	%  \cvcolumn{Category 1}{\begin{itemize}\item Person 1\item Person 2\item Person 3\end{itemize}}
+	%  \cvcolumn{Category 2}{Amongst others:\begin{itemize}\item Person 1, and\item Person 2\end{itemize}(more upon request)}
+	%  \cvcolumn[0.5]{All the rest \& some more}{\textit{That} person, and \textbf{those} also (all available upon request).}
+	%\end{cvcolumns}
+	
+	% Publications from a BibTeX file without multibib
+	%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+	%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+	%\nocite{*}
+	%\bibliographystyle{plain}
+	%\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+	
+	% Publications from a BibTeX file using the multibib package
+	%\section{Publications}
+	%\nocitebook{book1,book2}
+	%\bibliographystylebook{plain}
+	%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+	%\nocitemisc{misc1,misc2,misc3}
+	%\bibliographystylemisc{plain}
+	%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+\end{document}
+
+
+%% end of file `template.tex'.
