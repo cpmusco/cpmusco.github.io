@@ -82,6 +82,12 @@ h1 {
 	box-shadow: none !important
 }
 
+/* Slightly tighter side padding so all research-category buttons fit on one row */
+.btn-group > .btn {
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
 .hide {
   display: none;
 }

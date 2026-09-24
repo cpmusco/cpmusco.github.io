@@ -115,14 +115,14 @@
           <hr>
           
           <div class="btn-group d-grid d-md-flex gap-2 mb-4" role="group">
-            <button type="button" class="btn btn-light active" aria-pressed="true" id="btn-all">All</button>
+            <button type="button" class="btn btn-light" id="btn-all">All</button>
+            <button type="button" class="btn btn-light active" aria-pressed="true" id="btn-recent">Recent</button>
             <button type="button" class="btn btn-light" id="btn-nla">Numerical Linear Algebra</button>
             <button type="button" class="btn btn-light" id="btn-sketch">Sketching and Streaming</button>
             <button type="button" class="btn btn-light" id="btn-sampling">Sample Efficient Learning</button>
             <button type="button" class="btn btn-light" id="btn-graph">Graphs Algorithms</button>
-            <button type="button" class="btn btn-light" id="btn-ann">High-Dimensional Vector Search</button>
-            <button type="button" class="btn btn-light" 
-            id="btn-misc">Miscellaneous</button>
+            <button type="button" class="btn btn-light" id="btn-ann">Vector Search</button>
+            <button type="button" class="btn btn-light" id="btn-misc">Miscellaneous</button>
           </div>
 
           <p class="paper nla sketch">
@@ -890,6 +890,13 @@
         $("#btn-all").click(function(){
           $(".paper").removeClass("hide");
         });
+      });
+      $(document).ready(function(){
+        $("#btn-recent").click(function(){
+          $(".paper").addClass("hide");
+          $(".paper").slice(0, 8).removeClass("hide");
+        });
+        $("#btn-recent").trigger("click");
       });
       $(document).ready(function(){
         $("#btn-nla").click(function(){
