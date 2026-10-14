@@ -125,6 +125,16 @@
             <button type="button" class="btn btn-light" id="btn-misc">Miscellaneous</button>
           </div>
 
+          <p class="paper nla">
+            <a href="https://arxiv.org/abs/2610.14620">
+              Dimension-Independent Eigenvalue Approximation for Sparse Matrices
+            </a></br>
+            <span class="authors">
+            Natalia Hajlasz, Christopher Musco, Jonathan Weare, Robert J. Webber
+            </span></br>
+            Preprint, 2026.
+          </p>
+
           <p class="paper nla sketch">
             <a href="https://arxiv.org/abs/2609.28472">
               Hutch#: Optimal Non-Adaptive Frobenius Norm Estimation
@@ -272,6 +282,16 @@
             SIAM Journal on Matrix Analysis and Applications (SIMAX 2026).
           </p>
 
+          <p class="paper misc sampling nla">
+            <a href="https://arxiv.org/abs/2410.08336">
+              Kernel Banzhaf: A Fast and Robust Estimator for Banzhaf Values
+            </a></br>
+            <span class="authors">
+              Yurong Liu, R. Teal Witter, Flip Korn, Tarfah Alrashed, Dimitris Paparas, Christopher Musco, Juliana Freire
+            </span></br>
+            Transactions on Machine Learning Research (TMLR 2026).
+          </p>
+
           <p class="paper ann">
             <a href="https://arxiv.org/abs/2505.15636">
               Distance Adaptive Beam Search for Provably Accurate Graph-Based Nearest Neighbor Search
@@ -293,16 +313,6 @@
             Advances in Neural Information Processing Systems (NeurIPS 2025).
           </p>
 
-
-          <p class="paper misc sampling nla">
-            <a href="https://arxiv.org/abs/2410.08336">
-              Kernel Banzhaf: A Fast and Robust Estimator for Banzhaf Values
-            </a></br>
-            <span class="authors">
-              Yurong Liu, R. Teal Witter, Flip Korn, Tarfah Alrashed, Dimitris Paparas, Christopher Musco, Juliana Freire
-            </span></br>
-            Preprint.
-          </p>
 
           <p class="paper nla misc">
             <a href="https://arxiv.org/abs/2408.12385">
@@ -858,7 +868,7 @@
       <p>
         <a href="https://savs95.github.io/">Apoorv Singh</a>, Ph.D., 2020 - 2026. Hire him -- he's great!<br>
         <a href="https://scholar.google.com/citations?hl=en&user=w7_bE5cAAAAJ&view_op=list_works&sortby=pubdate">Feyza Duman Keles</a>, Ph.D. 2023 - 2026. Postdoc at the Max Planck Institute for Informatics.<br>
-        <a href="https://lucasrosenblatt.com/">Lucas Rosenblatt</a>, Ph.D., 2021 - 2026. Assistant Professor at Williams College.<br>
+        <a href="https://lucasrosenblatt.com/">Lucas Rosenblatt</a> (honorary group member), Ph.D., 2021 - 2026. Assistant Professor at Williams College.<br>
         <a href="https://aarshvig.github.io/">Aarshvi Gajjar</a>, Ph.D. 2021 - 2025. Research Scientist at Uber.<br>
         <a href="https://www.rtealwitter.com/">R. Teal Witter</a>, Ph.D., 2020 - 2025. Assistant Professor at Claremont McKenna College.<br>
         <a href="https://chen.pw/">Tyler Chen</a>, Courant Instructor, 2022 - 2024. Assistant Professor at NYU Shanghai.<br>
@@ -894,7 +904,7 @@
       $(document).ready(function(){
         $("#btn-recent").click(function(){
           $(".paper").addClass("hide");
-          $(".paper").slice(0, 8).removeClass("hide");
+          $(".paper").slice(0, 15).removeClass("hide");
         });
         $("#btn-recent").trigger("click");
       });
