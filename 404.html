@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Page not found</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // Course sites moved out of their own (private) repos into public "course_webpages*" repos.
+  // Forward old URLs like /rdad2025/lectures/x.pdf to /course_webpages2/rdad2025/lectures/x.pdf.
+  var COURSE_REPOS = {
+    "algorithmic-ml-ds-2019": "course_webpages",
+    "amlds2020": "course_webpages",
+    "amlds2021": "course_webpages",
+    "amlds2022": "course_webpages",
+    "machinelearning2023_grad": "course_webpages",
+    "amlds2023": "course_webpages2",
+    "machinelearning2024_grad": "course_webpages2",
+    "rdad2025": "course_webpages2",
+    "amlds2025": "course_webpages2",
+    "amlds2026": "course_webpages3"
+  };
+  var course = location.pathname.split("/")[1];
+  if (COURSE_REPOS.hasOwnProperty(course)) {
+    location.replace("/" + COURSE_REPOS[course] + location.pathname + location.search + location.hash);
+  }
+</script>
+<style>body{font-family:sans-serif;max-width:40em;margin:4em auto;padding:0 1em;color:#333}</style>
+</head>
+<body>
+<h1>Page not found</h1>
+<p>Sorry, that page doesn't exist. Try the <a href="/">homepage</a>.</p>
+</body>
+</html>
