@@ -125,6 +125,26 @@
             <button type="button" class="btn btn-light" id="btn-misc">Miscellaneous</button>
           </div>
 
+          <p class="paper graph ann">
+            <a href="https://arxiv.org/abs/2610.38205">
+              Fast Sparse &alpha;-Navigable Graph Construction with Improved Resource Augmentation
+            </a></br>
+            <span class="authors">
+            Alex Conway, Laxman Dhulipala, Martin Farach-Colton, Ben Landrum, Christopher Musco, Yarin Shechter, Torsten Suel, Richard Wen
+            </span></br>
+            ACM-SIAM Symposium on Discrete Algorithms (SODA 2027).
+          </p>
+
+          <p class="paper ann">
+            <a href="https://arxiv.org/abs/2610.38133">
+              On Worst-Case Guarantees for Graph-Based Nearest-Neighbor Search
+            </a></br>
+            <span class="authors">
+            Majid Daliri, Mohammadreza Daneshvaramoli, Purna Dutta, Edo Liberty, Cameron Musco, Christopher Musco, Torsten Suel
+            </span></br>
+            Advances in Neural Information Processing Systems (NeurIPS 2026).
+          </p>
+
           <p class="paper nla">
             <a href="https://arxiv.org/abs/2610.14620">
               Dimension-Independent Eigenvalue Approximation for Sparse Matrices
@@ -914,7 +934,7 @@
       $(document).ready(function(){
         $("#btn-recent").click(function(){
           $(".paper").addClass("hide");
-          $(".paper").slice(0, 15).removeClass("hide");
+          $(".paper").slice(0, 20).removeClass("hide");
         });
         $("#btn-recent").trigger("click");
       });
